@@ -549,6 +549,12 @@ nav ul li a:hover::after {
     font-size: 0.9rem;
     color: var(--accent-color);
     font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.member-major {
+    font-size: 0.82rem;
+    color: var(--text-muted);
     margin-bottom: 8px;
 }
 
@@ -556,6 +562,15 @@ nav ul li a:hover::after {
     font-size: 0.85rem;
     color: var(--text-muted);
     line-height: 1.5;
+}
+
+.member-destination {
+    font-size: 0.82rem;
+    color: #e8733a;
+    font-weight: 500;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--card-border);
 }
 
 .group-label {
@@ -579,14 +594,6 @@ nav ul li a:hover::after {
 
 .alumni-card:hover {
     opacity: 1;
-}
-
-.alumni-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    color: var(--text-muted);
-    font-size: 0.95rem;
 }
 
 /* ==========================================
@@ -636,6 +643,79 @@ nav ul li a:hover::after {
     gap: 8px;
     border: 1px dashed var(--card-border);
     border-radius: var(--radius-md);
+}
+
+/* 图集悬停标题覆盖层 */
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 灯箱 */
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.gallery-lightbox img {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    object-fit: contain;
+}
+
+.gallery-lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10001;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.gallery-lightbox-close:hover {
+    opacity: 1;
+}
+
+.gallery-lightbox-title {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
 }
 
 /* ==========================================
@@ -850,6 +930,118 @@ nav ul li a:hover::after {
 /* ==========================================
    11. 项目开源页
    ========================================== */
+
+/* --- 论坛开源链接 --- */
+.forum-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 20px 0;
+}
+
+.forum-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.forum-header h2 {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.forum-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+#forum-links-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.forum-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 24px;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    border-left: 4px solid #e8733a;
+}
+
+.forum-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-left-color: #d4652a;
+}
+
+.forum-card-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #fef3ed, #fde2d4);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.forum-card-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.forum-card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.forum-card-title .forum-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    background: linear-gradient(135deg, #e8733a, #d4652a);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+/* 外部精选仓库标签 */
+.repo-name .external-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    background: linear-gradient(135deg, #0056b3, #0077cc);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin-left: 6px;
+}
+
+.forum-card-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- GitHub 仓库卡片 --- */
 .projects-container {
     max-width: 1100px;
     margin: 0 auto 60px;
@@ -1165,6 +1357,10 @@ html[data-theme="dark"] #repo-search-input {
     color: var(--text-color);
 }
 
+html[data-theme="dark"] .forum-card-icon {
+    background: linear-gradient(135deg, rgba(232,115,58,0.2), rgba(212,101,42,0.15));
+}
+
 html[data-theme="dark"] .menu-toggle span {
     background-color: var(--text-color);
 }
@@ -1247,6 +1443,7 @@ html[data-theme="dark"] .menu-toggle span {
         align-items: flex-start;
     }
 
+    #forum-links-list,
     #projects-list {
         grid-template-columns: 1fr;
     }

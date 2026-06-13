@@ -39,18 +39,17 @@
         </section>
 
         <section class="gallery-section">
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">📷<br>战队活动</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">📷<br>比赛现场</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">📷<br>团队合影</div>
-                </div>
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- 由 photos.js 动态渲染 -->
             </div>
         </section>
+
+        <!-- 灯箱 -->
+        <div class="gallery-lightbox" id="gallery-lightbox">
+            <span class="gallery-lightbox-close" id="gallery-lightbox-close">&times;</span>
+            <img src="" alt="" id="gallery-lightbox-img">
+            <p class="gallery-lightbox-title" id="gallery-lightbox-title"></p>
+        </div>
     </main>
 
     <footer>
@@ -75,11 +74,6 @@
                     </div>
                     <p>（以上排名不分先后）</p>
                 </div>
-                <div class="friendly-links">
-                    <h3>友情链接</h3>
-                    <div class="links-list">
-                        <a href="https://testing.tuxmonkey.cloud/" target="_blank">大连民族大学-C.ONE战队</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -88,6 +82,7 @@
 
     <script src="script.js"></script>
     <script src="nav.js"></script>
+    <script src="photos.js"></script>
 </body>
 
 </html>

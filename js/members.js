@@ -68,8 +68,8 @@
     ],
     alumni: [
       { name: '赵晴', role: '2021级 · 机械组', major: '智能制造工程', bio: '曾参与2023-2025赛季', destination: '现担任安克创新结构工程师', photo: 'zhaoqing.jpg' },
-      { name: '往届队员', role: '2021级 · 机械组', major: '', bio: '曾参与2022-2025赛季', destination: '', photo: 'alumni-01.jpg' },
-      { name: '往届队员', role: '2021级 · 电控组', major: '', bio: '曾参与2022-2025赛季', destination: '', photo: 'alumni-02.jpg' },
+      { name: '殷超磊', role: '2021级 · 机械组', major: '车辆工程智能网联', bio: '曾参与2023-2024赛季', destination: '深圳市大疆创新科技有限公司 行业无人机结构工程师', photo: 'yinchaolei.jpg' },
+      { name: '潘璇岳', role: '2020级 · 电控组', major: '电子科学与技术', bio: '曾参与2023赛季', destination: '', photo: 'panxuanyue.jpg' },
       { name: '往届队员', role: '2021级 · 视觉组', major: '', bio: '曾参与2022-2025赛季', destination: '', photo: 'alumni-03.jpg' },
       { name: '往届队员', role: '2021级 · 硬件组', major: '', bio: '曾参与2022-2025赛季', destination: '', photo: 'alumni-04.jpg' },
       { name: '韩瑞琪', role: '2023级 · 电控组', major: '物联网工程', bio: '曾参与2024-2025赛季', destination: '', photo: 'hanruiqi.jpg' },

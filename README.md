@@ -25,7 +25,7 @@
 
 ### 🔗 在线访问
 
-👉 [https://hebutmas.github.io](https://hebutmas.github.io)
+👉 [https://hebutmas.github.io](https://Hebut_mas.github.io)
 
 ## 🏗️ 技术栈
 

@@ -1168,10 +1168,10 @@ nav ul li a:hover::after {
    13. 页脚
    ========================================== */
 footer {
-    background: #0b1120;
+    background: #f8fafc;
     border-top: 4px solid var(--accent-color);
     padding: 60px 20px 20px;
-    color: #94a3b8;
+    color: #64748b;
 }
 
 .footer-main-content {
@@ -1188,7 +1188,7 @@ footer {
 
 footer h3 {
     font-size: 1.1rem;
-    color: #ffffff;
+    color: #1e293b;
     margin-bottom: 20px;
     border-left: 3px solid var(--accent-color);
     padding-left: 10px;
@@ -1201,11 +1201,13 @@ footer h3 {
     background: #ffffff;
     padding: 10px 16px;
     border-radius: 8px;
-    transition: background 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .school-logo a:hover, .partners-list a:hover {
     background: #f1f5f9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .school-logo img, .partners-list img {
@@ -1235,6 +1237,7 @@ footer h3 {
     border: 2px dashed #cbd5e1;
     border-radius: 8px;
     background: #ffffff !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     color: #64748b;
     font-size: 0.85rem;
     transition: all 0.3s ease;
@@ -1250,7 +1253,7 @@ footer h3 {
 
 .footer-divider {
     width: 1px;
-    background: rgba(255, 255, 255, 0.08);
+    background: #e2e8f0;
 }
 
 .links-list a {
@@ -1267,7 +1270,7 @@ footer h3 {
     max-width: 1200px;
     margin: 40px auto 0;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid #e2e8f0;
     text-align: center;
     font-size: 0.85rem;
     color: #94a3b8;

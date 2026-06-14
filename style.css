@@ -1198,26 +1198,26 @@ footer h3 {
     display: inline-block;
     margin-right: 20px;
     margin-bottom: 15px;
-    background: transparent;
-    padding: 6px 10px;
+    background: #ffffff;
+    padding: 10px 16px;
     border-radius: 8px;
     transition: background 0.3s ease;
 }
 
 .school-logo a:hover, .partners-list a:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: #f1f5f9;
 }
 
 .school-logo img, .partners-list img {
     height: 55px;
     width: auto;
     object-fit: contain;
-    filter: brightness(1) grayscale(0);
+    filter: none;
     transition: filter 0.3s ease;
 }
 
 .school-logo img:hover, .partners-list img:hover {
-    filter: brightness(1.1);
+    filter: none;
 }
 
 .partners-footer p {
@@ -1232,10 +1232,10 @@ footer h3 {
     align-items: center;
     gap: 6px;
     padding: 12px 20px !important;
-    border: 2px dashed rgba(255, 255, 255, 0.25);
+    border: 2px dashed #cbd5e1;
     border-radius: 8px;
-    background: transparent !important;
-    color: #94a3b8;
+    background: #ffffff !important;
+    color: #64748b;
     font-size: 0.85rem;
     transition: all 0.3s ease;
     text-decoration: none;
@@ -1245,7 +1245,7 @@ footer h3 {
 .partner-vacancy:hover {
     border-color: var(--accent-color);
     color: var(--accent-color);
-    background: rgba(59, 130, 246, 0.08) !important;
+    background: #f1f5f9 !important;
 }
 
 .footer-divider {

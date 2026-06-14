@@ -73,28 +73,29 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid #e2e8f0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     transition: box-shadow 0.3s ease;
 }
 
 header.scrolled {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
 }
 
 nav {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 14px 20px;
+    padding: 16px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo .logo-icon {
-    height: 45px;
+    height: 42px;
     width: auto;
     object-fit: contain;
 }
@@ -102,35 +103,40 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 8px;
 }
 
 nav ul li a {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     position: relative;
-    padding: 5px 0;
-    color: #1e293b;
+    padding: 8px 16px;
+    color: #475569;
+    border-radius: 8px;
+    transition: color 0.25s ease, background 0.25s ease;
 }
 
 nav ul li a::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
-    height: 2px;
+    height: 2.5px;
     background: var(--accent-color);
-    transition: width 0.3s ease;
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 nav ul li a:hover {
     color: var(--accent-color);
+    background: rgba(59, 130, 246, 0.06);
 }
 
 nav ul li a:hover::after {
-    width: 100%;
+    width: calc(100% - 32px);
 }
 
 /* 汉堡按钮 */

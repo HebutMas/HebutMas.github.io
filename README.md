@@ -108,13 +108,15 @@ npx http-server . -p 8080
 
 ## 🤝 合作伙伴
 
-特别感谢以下合作伙伴对山海机甲战队的大力支持（排名不分先后）：
+特别感谢以下2026赛季赞助商对山海机甲战队的大力支持（排名不分先后）：
 
 <p align="center">
-  <a href="https://bambulab.com/zh"><img src="source/partners/bambu_lab.png" height="50" alt="Bambu Lab"></a>
-  <a href="https://www.cuav.net/"><img src="source/partners/cuav.png" height="50" alt="CUAV"></a>
-  <a href="https://www.china-amass.com/"><img src="source/partners/amass.png" height="50" alt="AMASS"></a>
+  <a href="https://www.china-amass.com/"><img src="source/partners/amass.png" height="50" alt="Amass"></a>
+  <a href="https://www.taobao.com/list/item/a2ZDVVVzbVlBL0lsMk9jTW01eUN4Zz09.htm"><img src="source/partners/byehassle.png" height="50" alt="BYEHassle 耗材"></a>
+  <a href="https://gy2025.com/"><img src="source/partners/quanzhou.png" height="50" alt="铨洲智造"></a>
 </p>
+
+> 🤝 **赞助商招租** — 欢迎更多合作伙伴加入，共同成长！
 
 ## 📬 联系我们
 

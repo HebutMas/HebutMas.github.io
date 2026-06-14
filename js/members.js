@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  var PHOTO_BASE = 'source/photos/members/';
+  var PHOTO_BASE = '../source/photos/members/';
 
   // ============================================================
   // 成员数据 — 在此处添加/修改成员

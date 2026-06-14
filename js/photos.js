@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  var PHOTO_BASE = 'source/photos/gallery/';
+  var PHOTO_BASE = '../source/photos/gallery/';
 
   // ============================================================
   // 图集数据 — 在此处添加/修改照片

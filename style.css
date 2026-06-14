@@ -1199,8 +1199,8 @@ footer h3 {
     margin-right: 15px;
     margin-bottom: 15px;
     background: rgba(255, 255, 255, 0.08);
-    padding: 8px 15px;
-    border-radius: 6px;
+    padding: 12px 20px;
+    border-radius: 8px;
     transition: background 0.3s ease;
 }
 
@@ -1209,7 +1209,7 @@ footer h3 {
 }
 
 .school-logo img, .partners-list img {
-    height: 35px;
+    height: 55px;
     width: auto;
     object-fit: contain;
     filter: brightness(0.9) grayscale(0.3);

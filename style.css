@@ -1,5 +1,5 @@
 /* ==========================================
-   山海机甲战队 — 统一样式表 (蓝白科技主题)
+   山海机甲战队 — 统一样式表 (浅色简约主题)
    ========================================== */
 
 /* 谷歌机甲风字体 */
@@ -11,22 +11,22 @@
 :root {
     --font-sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
 
-    /* 深色主题 (默认) */
-    --bg-color: #0f172a;
-    --text-color: #e2e8f0;
-    --text-muted: #94a3b8;
-    --accent-color: #3b82f6;
-    --accent-hover: #60a5fa;
-    --accent-glow: rgba(59, 130, 246, 0.25);
-    --card-bg: #1e293b;
-    --card-border: rgba(59, 130, 246, 0.15);
+    /* 浅色主题 */
+    --bg-color: #ffffff;
+    --text-color: #1e293b;
+    --text-muted: #64748b;
+    --accent-color: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-glow: rgba(37, 99, 235, 0.08);
+    --card-bg: #f8fafc;
+    --card-border: #e2e8f0;
     --nav-bg: rgba(255, 255, 255, 0.92);
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
-    --transition-base: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-base: 0.25s ease;
 }
 
 *, *::before, *::after {
@@ -73,16 +73,16 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: none;
     transition: box-shadow 0.3s ease;
 }
 
 header.scrolled {
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
 }
 
 nav {
@@ -200,7 +200,7 @@ nav ul li a:hover::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(15,23,42,0.15) 0%, rgba(15,23,42,0.6) 60%, var(--bg-color) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 60%, var(--bg-color) 100%);
     z-index: -1;
 }
 
@@ -213,13 +213,13 @@ nav ul li a:hover::after {
 .intro-logo-main {
     max-width: 280px;
     margin: 0 auto 25px;
-    filter: drop-shadow(0 0 18px var(--accent-glow));
-    animation: logoFloat 4s ease-in-out infinite;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+    animation: logoFloat 5s ease-in-out infinite;
 }
 
 @keyframes logoFloat {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-6px); }
 }
 
 .intro-title {
@@ -227,16 +227,10 @@ nav ul li a:hover::after {
     font-weight: 800;
     letter-spacing: 6px;
     text-transform: uppercase;
-    background: linear-gradient(135deg, #003a8c, #00d2ff);
+    background: linear-gradient(135deg, #1e40af, #2563eb);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: titlePulse 3s ease-in-out infinite alternate;
-}
-
-@keyframes titlePulse {
-    from { filter: drop-shadow(0 0 3px rgba(0,123,255,0.15)); }
-    to   { filter: drop-shadow(0 0 14px rgba(0,123,255,0.45)); }
 }
 
 /* ==========================================
@@ -288,18 +282,13 @@ nav ul li a:hover::after {
 .action-panel {
     width: 100%;
     max-width: 800px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius-lg);
-    padding: 30px;
     text-align: center;
-    box-shadow: var(--shadow-sm);
 }
 
 .panel-title {
     font-size: 0.9rem;
     color: var(--text-muted);
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     margin-bottom: 25px;
     font-weight: 500;
 }
@@ -329,8 +318,12 @@ nav ul li a:hover::after {
 .contact-btn img {
     width: 22px;
     height: 22px;
-    filter: invert(0.3) sepia(1) hue-rotate(180deg) saturate(1.5);
-    transition: filter 0.3s ease;
+    opacity: 0.65;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.contact-btn:hover img {
+    opacity: 1;
 }
 
 .contact-btn:hover {
@@ -343,21 +336,21 @@ nav ul li a:hover::after {
     border-color: #00aeec;
     color: #00aeec;
 }
-#bilibili-btn:hover img { filter: none; }
+#bilibili-btn:hover img { opacity: 1; }
 
 #github-btn:hover {
     background: rgba(36, 41, 46, 0.08);
     border-color: #24292e;
     color: #24292e;
 }
-#github-btn:hover img { filter: none; }
+#github-btn:hover img { opacity: 1; }
 
 #wechat-btn:hover {
     background: rgba(7, 193, 96, 0.08);
     border-color: #07c160;
     color: #07c160;
 }
-#wechat-btn:hover img { filter: none; }
+#wechat-btn:hover img { opacity: 1; }
 
 /* ==========================================
    5. 三大板块横幅卡片
@@ -859,7 +852,12 @@ nav ul li a:hover::after {
 .social-links img {
     width: 20px;
     height: 20px;
-    filter: invert(0.3) sepia(1) hue-rotate(180deg) saturate(1.5);
+    opacity: 0.65;
+    transition: opacity 0.3s ease;
+}
+
+.social-links a:hover img {
+    opacity: 1;
 }
 
 /* 表单 */
@@ -958,17 +956,16 @@ nav ul li a:hover::after {
     gap: 16px;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: var(--border-radius);
+    border-radius: var(--radius-md);
     padding: 24px;
     text-decoration: none;
     transition: all var(--transition-base);
-    border-left: 4px solid #e8733a;
 }
 
 .forum-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-    border-left-color: #d4652a;
+    border-color: rgba(232, 115, 58, 0.4);
 }
 
 .forum-card-icon {
@@ -1176,7 +1173,7 @@ nav ul li a:hover::after {
    ========================================== */
 footer {
     background: #f8fafc;
-    border-top: 4px solid var(--accent-color);
+    border-top: 1px solid #e2e8f0;
     padding: 60px 20px 20px;
     color: #64748b;
 }
@@ -1208,25 +1205,19 @@ footer h3 {
     background: #ffffff;
     padding: 10px 16px;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    box-shadow: var(--shadow-sm);
     transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .school-logo a:hover, .partners-list a:hover {
     background: #f1f5f9;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-md);
 }
 
 .school-logo img, .partners-list img {
     height: 55px;
     width: auto;
     object-fit: contain;
-    filter: none;
-    transition: filter 0.3s ease;
-}
-
-.school-logo img:hover, .partners-list img:hover {
-    filter: none;
 }
 
 .partners-footer p {
@@ -1244,7 +1235,7 @@ footer h3 {
     border: 2px dashed #cbd5e1;
     border-radius: 8px;
     background: #ffffff !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    box-shadow: var(--shadow-sm);
     color: #64748b;
     font-size: 0.85rem;
     transition: all 0.3s ease;
@@ -1255,7 +1246,7 @@ footer h3 {
 .partner-vacancy:hover {
     border-color: var(--accent-color);
     color: var(--accent-color);
-    background: #f1f5f9 !important;
+    background: #eff6ff !important;
 }
 
 .footer-divider {
@@ -1307,18 +1298,8 @@ footer h3 {
 }
 
 /* ==========================================
-   14.5 深色模式细节修正
+   14.5 浅色主题细节
    ========================================== */
-.contact-btn img,
-.social-links img {
-    filter: brightness(0) invert(1);
-}
-
-.contact-btn:hover img,
-.social-links a:hover img {
-    filter: none;
-}
-
 .page-header {
     background: linear-gradient(180deg, rgba(59,130,246,0.06) 0%, transparent 100%);
 }
@@ -1330,10 +1311,6 @@ footer h3 {
 
 .forum-card-icon {
     background: linear-gradient(135deg, rgba(232,115,58,0.2), rgba(212,101,42,0.15));
-}
-
-.menu-toggle span {
-    background-color: #1e293b;
 }
 
 /* ==========================================

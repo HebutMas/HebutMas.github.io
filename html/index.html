@@ -1,142 +1,501 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>河北工业大学山海机甲</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="icon" href="../source/logo/color_logo.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>山海机甲 | HEBUT RoboMaster 战队</title>
+  <meta name="description" content="河北工业大学 RoboMaster 山海机甲战队 — 保持热爱，共赴山海">
+  <link rel="icon" href="../source/logo/color_logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
 </head>
-
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="./index.html">
-                    <img src="../source/logo/title_logo.png" alt="MAS Color Logo" class="logo-icon">
-                </a>
-            </div>
-            <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="https://www.robomaster.com/zh-CN" target="_blank">赛事链接</a></li>
-                <li><a href="members.html">战队成员</a></li>
-                <li><a href="open_source.html">项目开源</a></li>
-                <li><a href="contact.html">联系我们</a></li>
-            </ul>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
 
-    <main>
-        <section class="intro">
-            <video autoplay muted loop id="bg-video" src="../source/video.mp4"></video>
-            <div class="intro-content">
-                <div class="intro-logos">
-                    <img src="../source/logo/rm_and_mas.png" alt="MAS Logo" class="intro-logo-main">
-                </div>
-                <div class="intro-title">保持热爱，共赴山海</div>
-            </div>
-        </section>
+  <!-- ========== 导航栏 ========== -->
+  <header id="navbar">
+    <nav>
+      <a href="index.html" class="logo">
+        <img src="../source/logo/title_logo.png" alt="山海机甲" class="logo-img">
+        <span class="logo-text">山海<span class="logo-dot"></span>机甲</span>
+      </a>
+      <ul id="nav-links">
+        <li><a href="#about">关于我们</a></li>
+        <li><a href="#team-groups">团队架构</a></li>
+        <li><a href="#achievements">赛事战绩</a></li>
+        <li><a href="#robots">机器人</a></li>
+        <li><a href="photos.html">战队图集</a></li>
+        <li><a href="open_source.html">开源项目</a></li>
+      </ul>
+      <button class="menu-toggle" id="menu-toggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
 
-        <section class="team-intro">
-            <div class="intro-text-box">
-                <h2>团队介绍</h2>
-                <p>河北工业大学RoboMaster山海机甲战队是河北工业大学学生创新团队之一，由各专业热爱机器人技术的学生组建而成，2022年建队，主要参加全国大学生机器人大赛RoboMaster机甲大师赛等赛事，建队以来获得省国级奖项十余项，培养出了多名青年工程师和行业技术人才。
-                </p>
-            </div>
+  <main>
 
-            <div class="action-panel">
-                <h3 class="panel-title">— 关注我们 —</h3>
-                <div class="contact-buttons">
-                    <a href="https://space.bilibili.com/2055273988" class="contact-btn" id="bilibili-btn">
-                        <img src="../source/icons/bilibili.svg" alt="Bilibili">
-                        <span>Bilibili 官方频道</span>
-                    </a>
-                    <a href="https://github.com/HebutMas" class="contact-btn" id="github-btn">
-                        <img src="../source/icons/github.svg" alt="GitHub">
-                        <span>GitHub 开源仓库</span>
-                    </a>
-                    <a href="https://mp.weixin.qq.com/s/3_dJGREx6516yR4BFa_-_Q" class="contact-btn" id="wechat-btn">
-                        <img src="../source/icons/wechat.svg" alt="WeChat">
-                        <span>微信公众号</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="banners banners-three">
-            <div class="banner">
-                <a href="members.html" class="banner-link">
-                    <div class="banner-img-wrapper"><img src="../source/banner/banner1.jpg" alt="河北工业战队成员信息"
-                            loading="lazy"></div>
-                    <div class="banner-content">
-                        <h3>战队成员</h3>
-                        <p>现任队员、往届队员信息</p>
-                        <span class="action-text">点击查看 &rarr;</span>
-                    </div>
-                </a>
-            </div>
-            <div class="banner">
-                <a href="photos.html" class="banner-link">
-                    <div class="banner-img-wrapper"><img src="../source/banner/banner2.jpg" alt="战队图片回顾" loading="lazy">
-                    </div>
-                    <div class="banner-content">
-                        <h3>战队图集</h3>
-                        <p>记录河北工业战队的相册</p>
-                        <span class="action-text">点击查看 &rarr;</span>
-                    </div>
-                </a>
-            </div>
-            <div class="banner">
-                <a href="schedule.html" class="banner-link">
-                    <div class="banner-img-wrapper"><img src="../source/banner/banner3.jpg" alt="比赛赛程" loading="lazy">
-                    </div>
-                    <div class="banner-content">
-                        <h3>比赛赛程</h3>
-                        <p>历届高校联盟赛、超级对抗赛信息</p>
-                        <span class="action-text">点击查看 &rarr;</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-main-content">
-            <div class="footer-left">
-                <div class="school-logo">
-                    <h3>机构单位</h3>
-                    <a href="https://www.hebut.edu.cn/" target="_blank"><img src="../source/logo/hebut_logo.png" alt="mas Logo"
-                            id="mas-logo-main"></a>
-                    <a href="https://mes.hebut.edu.cn/" target="_blank"><img src="../source/logo/hebut_me.png" alt="me Logo"></a>
-                </div>
-            </div>
-            <div class="footer-divider"></div>
-            <div class="footer-right">
-                <div class="partners-footer">
-                    <h3>合作伙伴</h3>
-                    <div class="partners-list">
-                        <a href="https://www.china-amass.com/"><img src="../source/partners/amass.png" alt="Amass"></a>
-                        <a href="https://www.taobao.com/list/item/a2ZDVVVzbVlBL0lsMk9jTW01eUN4Zz09.htm"><img src="../source/partners/byehassle.png" alt="BYEHassle 耗材"></a>
-                        <a href="https://gy2025.com/"><img src="../source/partners/quanzhou.png" alt="铨洲智造"></a>
-                        <a href="#join" class="partner-vacancy"><span>+</span><span>赞助商招租</span></a>
-                    </div>
-                    <p>（以上排名不分先后）</p>
-                </div>
-            </div>
+    <!-- ========== Hero ========== -->
+    <section id="home" class="hero-section">
+      <!-- 视频背景 -->
+      <div class="hero-video-wrap">
+        <video class="hero-video" autoplay loop muted playsinline>
+          <source src="../source/video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
+      </div>
+      <div class="hero-grid-bg"></div>
+      <div class="hero-glow hero-glow--1"></div>
+      <div class="hero-glow hero-glow--2"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">山海<span class="hl">机甲</span></h1>
+        <p class="hero-subtitle">保持热爱，共赴山海</p>
+        <p class="hero-desc">河北工业大学 RoboMaster 战队，成立于 2022 年。<br>以山海之名，赴机甲之约。</p>
+        <div class="hero-actions">
+          <a href="#robots" class="btn btn-primary">探索机器人</a>
+          <a href="#contact" class="btn btn-outline">加入我们</a>
+          <a href="members.html" class="btn btn-ghost">英灵殿 →</a>
         </div>
-        <p class="footer-copyright">© 2026 河北工业大学RoboMaster山海机甲战队. All Rights Reserved.</p>
-    </footer>
+      </div>
+      <div class="scroll-hint" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+        <span>向下探索</span>
+        <div class="scroll-hint-line"></div>
+      </div>
+    </section>
 
-    <script src="../js/script.js"></script>
-    <script src="../js/nav.js"></script>
-    <!-- Logo Parade Container moved to the end of body for stacking context -->
-    <div id="school-logo-parade-container"></div>
+    <!-- ========== 数据条 ========== -->
+    <div class="stats-strip">
+      <div class="stat-box"><div class="stat-box-num">2022</div><div class="stat-box-label">建队年份</div></div>
+      <div class="stat-box"><div class="stat-box-num">5</div><div class="stat-box-label">技术组别</div></div>
+      <div class="stat-box"><div class="stat-box-num">12+</div><div class="stat-box-label">省国级奖项</div></div>
+      <div class="stat-box"><div class="stat-box-num">30+</div><div class="stat-box-label">历届队员</div></div>
+    </div>
+
+    <!-- ========== 关于我们 ========== -->
+    <section id="about" class="section">
+      <div class="section-container">
+        <div class="section-eyebrow">About Us</div>
+        <h2 class="section-title">关于我们</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>山海机甲是隶属于<strong>河北工业大学</strong>，专注于 <strong>RoboMaster 机甲大师</strong>机器人竞赛的实验室与战队。</p>
+            <p>我们致力于推动机器人技术发展，为学生提供协作环境，培养实用工程技能。建队以来斩获多项荣誉，输送了多名青年工程师与行业人才。</p>
+            <div class="tech-cloud">
+              <span class="tech-chip">计算机视觉</span><span class="tech-chip">嵌入式系统</span><span class="tech-chip">机械结构设计</span><span class="tech-chip">自动控制</span><span class="tech-chip">功率电子</span><span class="tech-chip">SLAM 导航</span><span class="tech-chip">机器学习</span><span class="tech-chip">工业设计</span>
+            </div>
+          </div>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <div class="highlight-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+              <div class="highlight-text"><h4>以赛促学</h4><p>在 RoboMaster 实战中锤炼工程能力，将课堂知识转化为竞赛实力。</p></div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v-2"/><path d="M22 11a6 6 0 00-6-6H8a6 6 0 00-6 6v3"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/><circle cx="20" cy="11" r="2"/></svg></div>
+              <div class="highlight-text"><h4>跨学科协作</h4><p>机械、电子、软件、设计多专业融合，打造完整的机器人研发体系。</p></div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 7h7l-5.5 4 2 7L12 17l-5.5 4 2-7L3 10h7z"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></div>
+              <div class="highlight-text"><h4>技术传承</h4><p>完善的梯队培养机制，从新人到骨干，技术薪火代代相传。</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 团队架构 ========== -->
+    <section id="team-groups" class="section section--alt">
+      <div class="section-container">
+        <div class="section-eyebrow">Team Structure</div>
+        <h2 class="section-title">团队架构</h2>
+        <p class="section-desc">五个技术小组各司其职，团结协作，共同打造赛场上的每一台机器人。</p>
+        <div class="groups-grid">
+          <div class="group-card card">
+            <div class="group-card-head">
+              <div class="group-card-icon group-card-icon--mech"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+              <div>
+                <h3>机械架构组</h3>
+                <p>MEST · Mechanical Structure</p>
+              </div>
+            </div>
+            <p>负责机器人底盘、武器系统、机械部件的设计与制造，涵盖从3D建模到CNC加工的全流程。</p>
+            <div class="group-skills">
+              <span class="group-skill-tag">3D 建模</span><span class="group-skill-tag">CAD 出图</span><span class="group-skill-tag">CNC 加工</span><span class="group-skill-tag">结构分析</span><span class="group-skill-tag">装配测试</span>
+            </div>
+            <a href="#" class="group-link">了解更多</a>
+          </div>
+          <div class="group-card card">
+            <div class="group-card-head">
+              <div class="group-card-icon group-card-icon--elec"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+              <div>
+                <h3>电控组</h3>
+                <p>ELCT · Electronic Control</p>
+              </div>
+            </div>
+            <p>负责机器人嵌入式系统开发、运动控制算法与实时软件架构，实现机器人的智能行为。</p>
+            <div class="group-skills">
+              <span class="group-skill-tag">嵌入式开发</span><span class="group-skill-tag">控制算法</span><span class="group-skill-tag">CAN 总线</span><span class="group-skill-tag">RTOS</span><span class="group-skill-tag">传感器融合</span>
+            </div>
+            <a href="#" class="group-link">了解更多</a>
+          </div>
+          <div class="group-card card">
+            <div class="group-card-head">
+              <div class="group-card-icon group-card-icon--hw"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+              <div>
+                <h3>硬件组</h3>
+                <p>HDWR · Hardware Design</p>
+              </div>
+            </div>
+            <p>负责机器人电路系统设计、功率管理与配电方案，打造稳定可靠的硬件平台。</p>
+            <div class="group-skills">
+              <span class="group-skill-tag">PCB 设计</span><span class="group-skill-tag">功率电子</span><span class="group-skill-tag">超级电容</span><span class="group-skill-tag">电池管理</span><span class="group-skill-tag">EMC 防护</span>
+            </div>
+            <a href="#" class="group-link">了解更多</a>
+          </div>
+          <div class="group-card card">
+            <div class="group-card-head">
+              <div class="group-card-icon group-card-icon--vis"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+              <div>
+                <h3>视觉算法组</h3>
+                <p>VSAG · Vision & Algorithm</p>
+              </div>
+            </div>
+            <p>开发计算机视觉与AI系统，使机器人实现自主感知、目标识别与智能决策。</p>
+            <div class="group-skills">
+              <span class="group-skill-tag">目标检测</span><span class="group-skill-tag">目标跟踪</span><span class="group-skill-tag">ML 训练</span><span class="group-skill-tag">实时处理</span><span class="group-skill-tag">SLAM</span>
+            </div>
+            <a href="#" class="group-link">了解更多</a>
+          </div>
+          <div class="group-card card">
+            <div class="group-card-head">
+              <div class="group-card-icon group-card-icon--comm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg></div>
+              <div>
+                <h3>宣传筹划组</h3>
+                <p>PRAM · Promotion & Admin</p>
+              </div>
+            </div>
+            <p>管理品牌宣传、社交媒体、外联招商，同时负责赛季规划与开发平台运维。</p>
+            <div class="group-skills">
+              <span class="group-skill-tag">视觉设计</span><span class="group-skill-tag">新媒体运营</span><span class="group-skill-tag">招商引资</span><span class="group-skill-tag">平台运维</span><span class="group-skill-tag">项目管理</span>
+            </div>
+            <a href="#" class="group-link">了解更多</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 战绩 ========== -->
+    <section id="achievements" class="section section--tint">
+      <div class="section-container">
+        <div class="section-eyebrow">Achievements</div>
+        <h2 class="section-title">赛事战绩</h2>
+        <p class="section-desc">建队四年，从联盟赛到超级对抗赛，我们一路披荆斩棘，用实力书写山海传奇。</p>
+
+        <div class="ach-grid">
+          <!-- 2026 -->
+          <div class="ach-year-block">
+            <div class="ach-year-head">
+              <span class="ach-year-label">2026</span>
+              <span class="ach-year-tagline">新赛季</span>
+            </div>
+            <div class="ach-year-cards">
+              <div class="ach-card ach-card--bronze">
+                <span class="ach-card-medal">🥉</span>
+                <div class="ach-card-info">
+                  <strong>国家级三等奖 · 高校联盟赛华北站</strong>
+                  <span class="ach-tag">联盟赛</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2025 -->
+          <div class="ach-year-block">
+            <div class="ach-year-head">
+              <span class="ach-year-label">2025</span>
+              <span class="ach-year-tagline">巅峰赛季</span>
+            </div>
+            <div class="ach-year-cards">
+              <div class="ach-card ach-card--gold">
+                <span class="ach-card-medal">🥇</span>
+                <div class="ach-card-info">
+                  <strong>国家级二等奖 · 高校联盟赛山东站</strong>
+                  <span class="ach-tag">联盟赛</span>
+                </div>
+              </div>
+              <div class="ach-card ach-card--silver">
+                <span class="ach-card-medal">🥈</span>
+                <div class="ach-card-info">
+                  <strong>国家级三等奖 · 超级对抗赛东部赛区 32 强</strong>
+                  <span class="ach-tag ach-tag--main">超级对抗赛</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2024 -->
+          <div class="ach-year-block">
+            <div class="ach-year-head">
+              <span class="ach-year-label">2024</span>
+              <span class="ach-year-tagline">突破赛季</span>
+            </div>
+            <div class="ach-year-cards">
+              <div class="ach-card ach-card--gold">
+                <span class="ach-card-medal">🥇</span>
+                <div class="ach-card-info">
+                  <strong>国家级二等奖 · 超级对抗赛南部赛区 32 强</strong>
+                  <span class="ach-tag ach-tag--main">超级对抗赛</span>
+                  <small>首次参赛即闯入 32 强，完整形态通过技术考核</small>
+                </div>
+              </div>
+              <div class="ach-card ach-card--bronze">
+                <span class="ach-card-medal">🥉</span>
+                <div class="ach-card-info">
+                  <strong>国家级三等奖 · 高校联盟赛山东站</strong>
+                  <span class="ach-tag">联盟赛</span>
+                </div>
+              </div>
+              <div class="ach-card ach-card--bronze">
+                <span class="ach-card-medal">🥉</span>
+                <div class="ach-card-info">
+                  <strong>国家级三等奖 · 高校联盟赛辽宁站</strong>
+                  <span class="ach-tag">联盟赛</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2023 -->
+          <div class="ach-year-block">
+            <div class="ach-year-head">
+              <span class="ach-year-label">2023</span>
+              <span class="ach-year-tagline">建队首战</span>
+            </div>
+            <div class="ach-year-cards">
+              <div class="ach-card ach-card--gold">
+                <span class="ach-card-medal">🥇</span>
+                <div class="ach-card-info">
+                  <strong>国家级二等奖 · 高校联盟赛山东站</strong>
+                  <span class="ach-tag">联盟赛</span>
+                  <small>建队元年首战告捷</small>
+                </div>
+              </div>
+              <div class="ach-card ach-card--outline">
+                <span class="ach-card-medal">🏅</span>
+                <div class="ach-card-info">
+                  <strong>国家级三等奖 · 高校联盟赛辽宁站</strong>
+                  <span class="ach-tag">联盟赛</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 其他竞赛 -->
+        <div class="ach-other">
+          <h4 class="ach-other-title">其他竞赛成果</h4>
+          <div class="ach-other-grid">
+            <div class="ach-other-item">🏆 国家级一等奖 <span>全国大学生电子设计大赛</span></div>
+            <div class="ach-other-item">🏆 国家级二等奖 / 全国第七 <span>华北五省机器人大赛</span></div>
+            <div class="ach-other-item">🏅 国家级三等奖 <span>全国大学生光电设计大赛</span></div>
+            <div class="ach-other-item">🏅 国家级三等奖 × 2 <span>机械创新设计大赛</span></div>
+            <div class="ach-other-item">🏅 河北省一等奖 <span>工程实践与创新能力大赛</span></div>
+            <div class="ach-other-item">🏅 二等奖 <span>智能机器人创意大赛</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 机器人 ========== -->
+    <section id="robots" class="section section--tint">
+      <div class="section-container">
+        <div class="section-eyebrow">Our Robots</div>
+        <h2 class="section-title">我们的机器人</h2>
+        <p class="section-desc">每一台机器人都是团队智慧的结晶，为 RoboMaster 赛场的特定战术角色而设计。</p>
+        <div class="robots-grid">
+          <div class="robot-card card">
+            <div class="robot-card-visual">
+              <img src="../source/robots/infantry.jpg" alt="步兵机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+            </div>
+            <div class="robot-card-body">
+              <h3>步兵机器人</h3>
+              <p>全向轮底盘 + 下供弹系统，搭载自瞄算法，灵活机动，队伍中坚力量。</p>
+              <div class="robot-specs"><span>全向移动</span><span>自瞄系统</span><span>下供弹</span></div>
+              <a href="#" class="btn btn-outline btn-sm">了解更多</a>
+            </div>
+          </div>
+          <div class="robot-card card">
+            <div class="robot-card-visual">
+              <img src="../source/robots/hero.jpg" alt="英雄机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+            </div>
+            <div class="robot-card-body">
+              <h3>英雄机器人</h3>
+              <p>双摩擦轮发射，全自主作战方案，拥有更强火力输出与更厚装甲防护。</p>
+              <div class="robot-specs"><span>双摩擦轮</span><span>全自主</span><span>重装甲</span></div>
+              <a href="#" class="btn btn-outline btn-sm">了解更多</a>
+            </div>
+          </div>
+          <div class="robot-card card">
+            <div class="robot-card-visual">
+              <img src="../source/robots/sentry.jpg" alt="哨兵机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+            </div>
+            <div class="robot-card-body">
+              <h3>哨兵机器人</h3>
+              <p>全自动哨兵系统，搭载导航与识别算法，自动巡逻守护基地安全。</p>
+              <div class="robot-specs"><span>全自动</span><span>导航系统</span><span>智能识别</span></div>
+              <a href="#" class="btn btn-outline btn-sm">了解更多</a>
+            </div>
+          </div>
+          <div class="robot-card card">
+            <div class="robot-card-visual">
+              <img src="../source/robots/engineer.jpg" alt="工程机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+            </div>
+            <div class="robot-card-body">
+              <h3>工程机器人</h3>
+              <p>战场救援与补给核心，负责维修友方机器人、获取弹药并支援团队作战。</p>
+              <div class="robot-specs"><span>救援维修</span><span>弹药补给</span><span>地形适应</span></div>
+              <a href="#" class="btn btn-outline btn-sm">了解更多</a>
+            </div>
+          </div>
+          <div class="robot-card card">
+            <div class="robot-card-visual">
+              <img src="../source/robots/dart.jpg" alt="飞镖机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+            </div>
+            <div class="robot-card-body">
+              <h3>飞镖机器人</h3>
+              <p>远程精准打击单位，发射飞镖弹攻击敌方前哨站与基地，战术突破利器。</p>
+              <div class="robot-specs"><span>远程打击</span><span>高精度</span><span>快速装填</span></div>
+              <a href="#" class="btn btn-outline btn-sm">了解更多</a>
+            </div>
+          </div>
+          <div class="robot-card card">
+            <div class="robot-card-visual">
+              <img src="../source/robots/drone.jpg" alt="无人机" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+            </div>
+            <div class="robot-card-body">
+              <h3>无人机</h3>
+              <p>空中侦察与支援单位，提供战场全局视野，可进行空中打击与信息干扰。</p>
+              <div class="robot-specs"><span>空中侦察</span><span>全局视野</span><span>快速机动</span></div>
+              <a href="#" class="btn btn-outline btn-sm">了解更多</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 合作伙伴 ========== -->
+    <section id="partners" class="section">
+      <div class="section-container">
+        <div class="section-eyebrow">Partners</div>
+        <h2 class="section-title">合作伙伴</h2>
+        <p class="section-desc">感谢以下 2026 赛季赞助商对山海机甲战队的大力支持</p>
+        <div class="partners-grid">
+          <a href="https://www.china-amass.com/" target="_blank" rel="noopener" class="partner-card card">
+            <div class="partner-logo"><img src="../source/partners/amass.png" alt="Amass"></div>
+            <span class="partner-name">Amass</span>
+            <span class="partner-desc">连接器解决方案</span>
+          </a>
+          <a href="https://www.taobao.com/list/item/a2ZDVVVzbVlBL0lsMk9jTW01eUN4Zz09.htm" target="_blank" rel="noopener" class="partner-card card">
+            <div class="partner-logo"><img src="../source/partners/byehassle.png" alt="BYEHassle"></div>
+            <span class="partner-name">BYEHassle</span>
+            <span class="partner-desc">3D 打印耗材</span>
+          </a>
+          <a href="https://gy2025.com/" target="_blank" rel="noopener" class="partner-card card">
+            <div class="partner-logo"><img src="../source/partners/quanzhou.png" alt="铨洲智造"></div>
+            <span class="partner-name">铨洲智造</span>
+            <span class="partner-desc">精密加工</span>
+          </a>
+          <div class="partner-card card partner-vacancy">
+            <div class="partner-logo"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+            <span class="partner-name">虚位以待</span>
+            <span class="partner-desc">诚邀合作伙伴</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 联系我们 ========== -->
+    <section id="contact" class="section section--alt">
+      <div class="section-container">
+        <div class="section-eyebrow">Contact</div>
+        <h2 class="section-title">联系我们</h2>
+        <p class="section-desc">有问题或想加入我们？欢迎通过以下渠道联系我们。</p>
+        <div class="contact-grid">
+          <div class="contact-info-list">
+            <div class="contact-row">
+              <div class="contact-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg></div>
+              <div><h4>邮箱</h4><a href="mailto:sji733055@gmail.com">sji733055@gmail.com</a></div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="10" r="7"/><path d="M12 22v-5"/><path d="M12 2v4"/></svg></div>
+              <div><h4>地址</h4><p>天津市北辰区西平道 5340 号 河北工业大学<br>科技园七号楼 204 · 科技园九号楼 616</p></div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg></div>
+              <div>
+                <h4>社交媒体</h4>
+                <div class="social-chips">
+                  <a href="https://space.bilibili.com/2055273988" target="_blank" rel="noopener" class="social-chip">Bilibili</a>
+                  <a href="https://github.com/HebutMas" target="_blank" rel="noopener" class="social-chip">GitHub</a>
+                  <span class="social-chip">微信公众号</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="join-card card card--accent-left">
+            <h3>加入山海机甲</h3>
+            <p>我们正在寻找热情澎湃的新成员。无论你的专业是机械、电子、计算机、设计还是管理——只要你对机器人技术有热忱，我们都期待你的加入。</p>
+            <ul>
+              <li>实战工程项目经验</li>
+              <li>国家级竞赛参与机会</li>
+              <li>跨学科团队协作能力</li>
+              <li>企业级技术栈学习</li>
+            </ul>
+            <a href="mailto:sji733055@gmail.com" class="btn btn-primary">申请加入</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== 页脚 ========== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <span class="footer-brand-name">山海机甲</span>
+          </div>
+          <p>河北工业大学 RoboMaster 战队<br>保持热爱，共赴山海</p>
+        </div>
+        <div class="footer-col">
+          <h4>导航</h4>
+          <a href="#about">关于我们</a><a href="#team-groups">团队架构</a><a href="#achievements">赛事战绩</a><a href="#robots">机器人</a>
+        </div>
+        <div class="footer-col">
+          <h4>内容</h4>
+          <a href="members.html">战队成员</a><a href="photos.html">战队图集</a><a href="open_source.html">开源项目</a><a href="#contact">联系我们</a>
+        </div>
+        <div class="footer-col">
+          <h4>机构单位</h4>
+          <div class="footer-institutions">
+            <a href="https://www.hebut.edu.cn/" target="_blank" rel="noopener" class="footer-inst-logo">
+              <img src="../source/logo/hebut_logo.png" alt="河北工业大学">
+            </a>
+            <a href="https://mes.hebut.edu.cn/" target="_blank" rel="noopener" class="footer-inst-logo">
+              <img src="../source/logo/hebut_me.png" alt="机械工程学院">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 河北工业大学 RoboMaster 山海机甲战队</p>
+        <p>Made with <span class="heart">❤</span> by Shanhai Mecha</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
 </body>
-
 </html>

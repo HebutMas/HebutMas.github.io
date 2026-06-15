@@ -125,7 +125,7 @@
   // --- 创建单张成员卡片 ---
   function createMemberCard(member, isAlumni) {
     var card = document.createElement('div');
-    card.className = 'member-card' + (isAlumni ? ' alumni-card' : '');
+    card.className = 'member-card card' + (isAlumni ? ' alumni-card' : '');
 
     // 头像
     var avatar = document.createElement('div');
@@ -176,7 +176,7 @@
       if (member.destination) {
         var destEl = document.createElement('p');
         destEl.className = 'member-destination';
-        destEl.textContent = '🎓 ' + member.destination;
+        destEl.textContent = member.destination;
         info.appendChild(destEl);
       }
     } else {

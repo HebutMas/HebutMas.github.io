@@ -69,7 +69,7 @@
     alumni: [
       { name: '赵晴', role: '2021级 · 机械组', major: '智能制造工程', bio: '曾参与2023-2025赛季', destination: '深圳市安克创新科技股份有限公司 结构工程师 ', photo: 'zhaoqing.jpg' },
       { name: '殷超磊', role: '2021级 · 机械组', major: '车辆工程智能网联', bio: '曾参与2023-2024赛季', destination: '深圳市大疆创新科技有限公司 行业无人机结构工程师', photo: 'yinchaolei.jpg' },
-      { name: '潘璇岳', role: '2020级 · 电控组', major: '电子科学与技术', bio: '曾参与2023赛季', destination: '现于北京大学深造 个人GitHub仓库:https://github.com/Sirius-RX', photo: 'panxuanyue.jpg' },
+      { name: '潘璇岳', role: '2020级 · 电控组', major: '电子科学与技术', bio: '曾参与2023赛季', destination: '现于北京大学深造<br>个人GitHub仓库: https://github.com/Sirius-RX', photo: 'panxuanyue.jpg' },
       { name: '刘一可', role: '2020级 · 机械组', major: '机械设计制造及其自动化', bio: '曾参与2023-2024赛季', destination: '深圳万色智匠智能科技有限公司 机械工程师', photo: 'liuyike.jpg' },
       { name: '往届队员', role: '2021级 · 硬件组', major: '', bio: '曾参与2022-2025赛季', destination: '', photo: 'alumni-04.jpg' },
       { name: '韩瑞琪', role: '2023级 · 电控组', major: '物联网工程', bio: '曾参与2024-2025赛季', destination: '', photo: 'hanruiqi.jpg' },
@@ -176,7 +176,7 @@
       if (member.destination) {
         var destEl = document.createElement('p');
         destEl.className = 'member-destination';
-        destEl.textContent = member.destination;
+        destEl.innerHTML = member.destination;
         info.appendChild(destEl);
       }
     } else {

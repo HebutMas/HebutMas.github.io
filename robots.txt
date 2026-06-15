@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Sitemap: https://hebutmas.github.io/sitemap.xml
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /html/
+Sitemap: https://hebutmas.github.io/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+Sitemap: https://hebutmas.github.io/sitemap.xml
+
+User-agent: Bingbot
+Allow: /
+Sitemap: https://hebutmas.github.io/sitemap.xml

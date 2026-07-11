@@ -705,6 +705,11 @@ footer::before {
    19. 机器人详情页
    ========================================== */
 .robot-detail-container { max-width: 900px; }
+.group-detail-badge { display: flex; justify-content: center; margin-bottom: 8px; }
+.group-detail-badge .group-card-icon {
+  width: 72px; height: 72px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+}
 .robot-detail-hero {
   position: relative; width: 100%; aspect-ratio: 16 / 9;
   border-radius: var(--radius-sm); overflow: hidden;

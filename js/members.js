@@ -9,10 +9,13 @@
 
   // ============================================================
   // 成员数据 — 在此处添加/修改成员
-  // 现任队员字段: name, role, major, bio, photo
-  // 往届队员字段: name, role, major, bio, destination, photo
+  // 现任队员字段: name, role, major, bio, photo, intro
+  // 往届队员字段: name, role, major, bio, destination, photo, intro
   // photo 为照片文件名（放在 source/photos/members/ 下）
   // 没有照片时 photo 留空，会显示名字首字作为头像
+  // intro 为详细自我介绍（点击卡片弹出）：可为一段文字，或多段文字组成的数组
+  //   例: intro: '我是……'  或  intro: ['第一段……', '第二段……']
+  //   留空时弹窗会回退显示 bio / destination
   // ============================================================
   var MEMBER_DATA = {
     current: [
@@ -69,9 +72,9 @@
     alumni: [
       { name: '赵晴', role: '2021级 · 机械组', major: '智能制造工程', bio: '曾参与2023-2025赛季', destination: '深圳市安克创新科技股份有限公司 结构工程师 ', photo: 'zhaoqing.jpg' },
       { name: '殷超磊', role: '2021级 · 机械组', major: '车辆工程智能网联', bio: '曾参与2023-2024赛季', destination: '深圳市大疆创新科技有限公司 行业无人机结构工程师', photo: 'yinchaolei.jpg' },
-      { name: '潘璇岳', role: '2020级 · 电控组', major: '电子科学与技术', bio: '曾参与2023赛季', destination: '现于北京大学深造<br>个人GitHub仓库: https://github.com/Sirius-RX', photo: 'panxuanyue.jpg' },
+      { name: '潘璇岳', role: '2020级 · 电控组', major: '电子科学与技术', bio: '曾参与2023赛季', destination: '现于北京大学深造<br>个人GitHub仓库: https://github.com/Sirius-RX', photo: 'panxuanyue.jpg',},
       { name: '刘一可', role: '2020级 · 机械组', major: '机械设计制造及其自动化', bio: '曾参与2023-2024赛季', destination: '深圳万色智匠智能科技有限公司 机械工程师', photo: 'liuyike.jpg' },
-      { name: '往届队员', role: '2021级 · 硬件组', major: '', bio: '曾参与2022-2025赛季', destination: '', photo: 'alumni-04.jpg' },
+      { name: '张腾', role: '2021级 · 机械＆飞手', major: '测控技术与仪器', bio: '曾参与2022-2025赛季', destination: '山东重工集团潍柴雷沃智慧农业科技股份有限公司 CAE强度分析工程师', photo: 'zhangteng.jpg' },
       { name: '韩瑞琪', role: '2023级 · 电控组', major: '物联网工程', bio: '曾参与2024-2025赛季', destination: '', photo: 'hanruiqi.jpg' },
       { name: '刘浩', role: '2023级 · 电控组', major: '软件工程', bio: '曾参与2024-2025赛季', destination: '', photo: 'liuhao.jpg' }
     ]
@@ -89,6 +92,8 @@
     if (alumniSection && MEMBER_DATA.alumni) {
       renderAlumni(alumniSection, MEMBER_DATA.alumni);
     }
+
+    setupModal();
   });
 
   // --- 渲染现任队员 ---
@@ -125,7 +130,21 @@
   // --- 创建单张成员卡片 ---
   function createMemberCard(member, isAlumni) {
     var card = document.createElement('div');
-    card.className = 'member-card card' + (isAlumni ? ' alumni-card' : '');
+    card.className = 'member-card card is-clickable' + (isAlumni ? ' alumni-card' : '');
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', member.name + ' — 查看详细介绍');
+
+    // 点击 / 回车 / 空格 打开详情弹窗
+    card.addEventListener('click', function () {
+      openModal(member, isAlumni);
+    });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(member, isAlumni);
+      }
+    });
 
     // 头像
     var avatar = document.createElement('div');
@@ -191,5 +210,114 @@
     card.appendChild(info);
 
     return card;
+  }
+
+  // ============================================================
+  //  成员详情弹窗
+  // ============================================================
+  var modal, modalPanel, modalOverlay, modalClose,
+      modalAvatar, modalName, modalRole, modalMajor, modalBody,
+      lastFocused;
+
+  function setupModal() {
+    modal = document.getElementById('member-modal');
+    if (!modal) return;
+
+    modalPanel = modal.querySelector('.member-modal-panel');
+    modalOverlay = document.getElementById('member-modal-overlay');
+    modalClose = document.getElementById('member-modal-close');
+    modalAvatar = document.getElementById('member-modal-avatar');
+    modalName = document.getElementById('member-modal-name');
+    modalRole = document.getElementById('member-modal-role');
+    modalMajor = document.getElementById('member-modal-major');
+    modalBody = document.getElementById('member-modal-body');
+
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+  }
+
+  function openModal(member, isAlumni) {
+    if (!modal) return;
+    lastFocused = document.activeElement;
+
+    // 头像
+    modalAvatar.innerHTML = '';
+    if (member.photo) {
+      var img = document.createElement('img');
+      img.src = PHOTO_BASE + member.photo;
+      img.alt = member.name;
+      img.onerror = function () {
+        img.style.display = 'none';
+        modalAvatar.appendChild(makePlaceholder(member.name));
+      };
+      modalAvatar.appendChild(img);
+    } else {
+      modalAvatar.appendChild(makePlaceholder(member.name));
+    }
+
+    // 基本信息（均用 textContent，防止注入）
+    modalName.textContent = member.name;
+    modalRole.textContent = member.role || '';
+    modalMajor.textContent = member.major || '';
+    modalMajor.style.display = member.major ? '' : 'none';
+
+    // 正文：优先 intro；否则回退 bio / destination
+    modalBody.innerHTML = '';
+    var paragraphs = collectIntro(member, isAlumni);
+    paragraphs.forEach(function (text) {
+      var p = document.createElement('p');
+      appendTextWithBreaks(p, text);   // 安全渲染，仅把换行/<br> 转成 <br>
+      modalBody.appendChild(p);
+    });
+
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    modalClose.focus();
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+  }
+
+  // 汇总要展示的段落文本
+  function collectIntro(member, isAlumni) {
+    var out = [];
+    if (member.intro) {
+      if (Array.isArray(member.intro)) {
+        member.intro.forEach(function (t) { if (t) out.push(t); });
+      } else {
+        out.push(member.intro);
+      }
+    }
+    if (out.length === 0) {
+      if (member.bio) out.push(member.bio);
+      if (isAlumni && member.destination) out.push('毕业去向：' + member.destination);
+    }
+    if (out.length === 0) out.push('这位队员还没有留下更多介绍。');
+    return out;
+  }
+
+  function makePlaceholder(name) {
+    var span = document.createElement('span');
+    span.className = 'avatar-placeholder';
+    span.textContent = (name || '?').charAt(0);
+    return span;
+  }
+
+  // 把字符串安全地写入元素：支持字面 "\n" 与 "<br>" 作为换行，其余按纯文本处理
+  function appendTextWithBreaks(el, text) {
+    var parts = String(text).split(/<br\s*\/?>|\n/i);
+    parts.forEach(function (part, i) {
+      if (i > 0) el.appendChild(document.createElement('br'));
+      el.appendChild(document.createTextNode(part));
+    });
   }
 })();

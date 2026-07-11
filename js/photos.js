@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  var PHOTO_BASE = '../source/photos/gallery/';
+  var PHOTO_BASE = 'source/photos/gallery/';
 
   // ============================================================
   // 图集数据 — 在此处添加/修改照片
@@ -14,6 +14,18 @@
   // cat:  分类（可选，用于未来筛选功能）
   // ============================================================
   var GALLERY_DATA = [
+    { src: 'gallery_01.jpg', title: '战队时刻 · 一', cat: '战队时刻' },
+    { src: 'gallery_02.jpg', title: '战队时刻 · 二', cat: '战队时刻' },
+    { src: 'gallery_03.jpg', title: '战队时刻 · 三', cat: '战队时刻' },
+    { src: 'gallery_04.jpg', title: '战队时刻 · 四', cat: '战队时刻' },
+    { src: 'gallery_05.jpg', title: '战队时刻 · 五', cat: '战队时刻' },
+    { src: 'gallery_06.jpg', title: '战队时刻 · 六', cat: '战队时刻' },
+    { src: 'gallery_07.jpg', title: '战队时刻 · 七', cat: '战队时刻' },
+    { src: 'gallery_08.jpg', title: '战队时刻 · 八', cat: '战队时刻' },
+    { src: 'gallery_09.jpg', title: '战队时刻 · 九', cat: '战队时刻' },
+    { src: 'gallery_10.jpg', title: '战队时刻 · 十', cat: '战队时刻' },
+    { src: 'gallery_11.jpg', title: '战队时刻 · 十一', cat: '战队时刻' },
+    { src: 'gallery_12.jpg', title: '战队时刻 · 十二', cat: '战队时刻' },
     { src: 'match2023_1.jpg', title: '2023赛季 · 比赛现场一', cat: '比赛现场' },
     { src: 'match2023_2.jpg', title: '2023赛季 · 比赛现场二', cat: '比赛现场' },
     { src: 'match2023_3.jpg', title: '2023赛季 · 比赛现场三', cat: '比赛现场' },

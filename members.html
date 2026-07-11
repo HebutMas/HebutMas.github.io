@@ -74,6 +74,23 @@
     </section>
   </main>
 
+  <!-- 成员详情弹窗 (由 members.js 填充) -->
+  <div class="member-modal" id="member-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="member-modal-name">
+    <div class="member-modal-overlay" id="member-modal-overlay"></div>
+    <div class="member-modal-panel" role="document">
+      <button class="member-modal-close" id="member-modal-close" aria-label="关闭">&times;</button>
+      <div class="member-modal-header">
+        <div class="member-modal-avatar" id="member-modal-avatar"></div>
+        <div class="member-modal-heading">
+          <h3 id="member-modal-name"></h3>
+          <p class="member-modal-role" id="member-modal-role"></p>
+          <p class="member-modal-major" id="member-modal-major"></p>
+        </div>
+      </div>
+      <div class="member-modal-body" id="member-modal-body"></div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-container">
       <div class="footer-main">

@@ -555,6 +555,50 @@ footer::before {
 .alumni-card { opacity: .82; }
 .alumni-card:hover { opacity: 1; }
 
+/* 可点击成员卡片 */
+.member-card.is-clickable { cursor: pointer; transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition); }
+.member-card.is-clickable:hover { transform: translateY(-4px); border-color: rgba(59,130,246,.35); box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.member-card.is-clickable:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* 成员详情弹窗 */
+.member-modal {
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; align-items: center; justify-content: center; padding: 24px;
+  opacity: 0; pointer-events: none; transition: opacity .28s;
+}
+.member-modal.active { opacity: 1; pointer-events: auto; }
+.member-modal-overlay { position: absolute; inset: 0; background: rgba(6,6,8,.8); backdrop-filter: blur(4px); }
+.member-modal-panel {
+  position: relative; z-index: 1; width: 100%; max-width: 520px; max-height: 86vh; overflow-y: auto;
+  background: var(--bg-elevated); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md); padding: 36px 32px 32px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.5);
+  transform: translateY(16px) scale(.98); transition: transform .28s;
+}
+.member-modal.active .member-modal-panel { transform: translateY(0) scale(1); }
+.member-modal-close {
+  position: absolute; top: 14px; right: 18px; width: 36px; height: 36px;
+  background: none; border: none; color: var(--text-secondary);
+  font-size: 30px; line-height: 1; cursor: pointer; border-radius: 50%;
+  transition: color .2s, background .2s;
+}
+.member-modal-close:hover { color: var(--text-primary); background: rgba(255,255,255,.06); }
+.member-modal-header { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; }
+.member-modal-avatar {
+  flex: 0 0 auto; width: 78px; height: 78px; border-radius: 50%; overflow: hidden;
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(59,130,246,.2);
+}
+.member-modal-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.member-modal-heading { min-width: 0; }
+.member-modal-heading h3 { font-size: 22px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px; }
+.member-modal-role { font-size: 14px; color: var(--accent); font-weight: 600; margin-bottom: 2px; }
+.member-modal-major { font-size: 13px; color: var(--text-secondary); }
+.member-modal-body { border-top: 1px solid var(--border-subtle); padding-top: 20px; }
+.member-modal-body p { font-size: 14.5px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 14px; }
+.member-modal-body p:last-child { margin-bottom: 0; }
+
 /* ==========================================
    16. 子页面头部
    ========================================== */
@@ -702,4 +746,7 @@ footer::before {
   .stats-strip { grid-template-columns: 1fr; }
   .members-grid { grid-template-columns: 1fr 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .member-modal { padding: 14px; }
+  .member-modal-panel { padding: 30px 20px 24px; max-height: 90vh; }
+  .member-modal-header { flex-direction: column; text-align: center; gap: 14px; }
 }

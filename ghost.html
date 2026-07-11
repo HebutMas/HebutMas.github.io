@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 这期神了 | 山海机甲</title>
+  <!-- 隐藏彩蛋页：不收录、不索引、不进 sitemap -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="source/logo/color_logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header id="navbar">
+    <nav>
+      <a href="index.html" class="logo">
+        <img src="source/logo/title_logo.png" alt="山海机甲" class="logo-img">
+        <span class="logo-text">山海<span class="logo-dot"></span>机甲</span>
+      </a>
+      <ul id="nav-links">
+        <li><a href="index.html">返回首页</a></li>
+        <li><a href="photos.html">正经图集</a></li>
+      </ul>
+      <button class="menu-toggle" id="menu-toggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header-section">
+      <div class="section-eyebrow">Secret · 仅限内部传阅</div>
+      <h2 class="section-title"> 这期神了</h2>
+      <p class="section-desc" style="margin: 0 auto;">比赛与训练场上的名场面。你能找到这里，说明你是自己人。</p>
+    </section>
+
+    <section class="section" style="padding-top: 40px;">
+      <div class="section-container">
+        <div class="gallery-grid" id="ghost-grid">
+          <!-- 由 ghost.js 动态渲染 -->
+        </div>
+      </div>
+    </section>
+
+    <div class="gallery-lightbox" id="ghost-lightbox">
+      <span class="gallery-lightbox-close" id="ghost-lightbox-close">&times;</span>
+      <img src="" alt="" id="ghost-lightbox-img">
+      <p class="gallery-lightbox-title" id="ghost-lightbox-title"></p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <p>© 2026 河北工业大学 RoboMaster 山海机甲战队 · 神人区</p>
+        <p>Made with <span class="heart">❤</span> by Shanhai Mecha</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/ghost.js"></script>
+</body>
+</html>

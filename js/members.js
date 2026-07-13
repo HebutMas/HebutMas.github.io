@@ -76,10 +76,17 @@
       { name: '刘一可', role: '2020级 · 机械组', major: '机械设计制造及其自动化', bio: '曾参与2023-2024赛季', destination: '深圳万色智匠智能科技有限公司 机械工程师', photo: 'liuyike.jpg' },
       { name: '张腾', role: '2021级 · 机械＆飞手', major: '测控技术与仪器', bio: '曾参与2022-2025赛季', destination: '山东重工集团潍柴雷沃智慧农业科技股份有限公司 CAE强度分析工程师', photo: 'zhangteng.jpg' },
       { name: '韩瑞琪', role: '2023级 · 电控组', major: '物联网工程', bio: '曾参与2024-2025赛季', destination: '', photo: 'hanruiqi.jpg' },
-      { name: '刘浩', role: '2023级 · 电控组', major: '软件工程', bio: '曾参与2024-2025赛季', destination: '', photo: 'liuhao.jpg' }
+      { name: '刘浩', role: '2023级 · 电控组', major: '软件工程', bio: '曾参与2024-2025赛季', destination: '', photo: 'liuhao.jpg' },
+      {name: '郭帅', role: '2023级 · 机械组', major: '机械电子工程专业', bio: '曾参与2024-2025赛季', destination: '', photo: 'guoshuai.jpg' },
+      {name: '杨梓栋', role: '2023级 · 硬件组', major: '自动化', bio: '曾参与2025赛季', destination: '', photo: 'yangzidong.jpg' },
+      {name: '侯秉均 ', role: '2023级 · 机械组 飞镖系统组长', major: '机械电子工程专业', bio: '曾参与2024-2025赛季', destination: '', photo: 'houbingjun.jpg' },
+      {name: '侯佳正 ' , role: '2023级 · 算法组', major: '测控技术与仪器专业', bio: '曾参与2024-2025赛季', destination: '', photo: 'houjiazheng.jpg' },
+      {name: '邱浚宇 ', role: '2023级 · 硬件组', major: '智能制造工程专业', bio: '曾参与2024-2025赛季', destination: '', photo: 'qiujunyu.jpg' },
+      {name: '张振龙', role: '2023级 · 机械组', major: '机械电子工程专业', bio: '曾参与2025赛季', destination: '', photo: 'zhangzhenlong.jpg' },
+      {name: '丁峰', role: '2023级 · 机械组', major: '机械设计制造及自动化', bio: '曾参与2024-2025赛季', destination: '', photo: 'dingfeng.jpg' },
     ]
   };
-
+  
   document.addEventListener('DOMContentLoaded', function () {
     var currentSection = document.getElementById('current-members');
     var alumniSection = document.getElementById('alumni-members');

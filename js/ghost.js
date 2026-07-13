@@ -2,7 +2,7 @@
  * @Author: sji733055-glitch sji733055@gmail.com
  * @Date: 2026-07-09 21:39:53
  * @LastEditors: sji733055-glitch sji733055@gmail.com
- * @LastEditTime: 2026-07-11 14:54:44
+ * @LastEditTime: 2026-07-13 18:04:14
  * @FilePath: \web\js\ghost.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -45,6 +45,12 @@
     { src: 'ghost_21.jpg', title: '鬼图 · 21' },
     { src: 'ghost_22.jpg', title: '鬼图 · 22' },
     { src: 'ghost_23.jpg', title: '鬼图 · 23' },
+    { src: 'ghost_24.jpg', title: '鬼图 · 24' },
+    { src: 'ghost_25.jpg', title: '鬼图 · 25' },
+    { src: 'ghost_26.jpg', title: '鬼图 · 26' },
+    { src: 'ghost_27.jpg', title: '鬼图 · 27' },
+    { src: 'ghost_28.jpg', title: '鬼图 · 28' },
+    { src: 'ghost_29.jpg', title: '鬼图 · 29' },
   ];
 
   document.addEventListener('DOMContentLoaded', function () {

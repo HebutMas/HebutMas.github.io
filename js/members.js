@@ -159,6 +159,7 @@
       img.src = PHOTO_BASE + member.photo;
       img.alt = member.name;
       img.loading = 'lazy';
+      img.decoding = 'async';
       img.onerror = function () {
         img.style.display = 'none';
         var fallback = document.createElement('span');

@@ -116,6 +116,7 @@
         img.src = PHOTO_BASE + photo.src;
         img.alt = photo.title;
         img.loading = 'lazy';
+        img.decoding = 'async';
         item.appendChild(img);
 
         var overlay = document.createElement('div');

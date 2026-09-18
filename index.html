@@ -22,7 +22,7 @@
   <meta name="twitter:title" content="山海机甲 | HEBUT RoboMaster 战队">
   <meta name="twitter:description" content="河北工业大学 RoboMaster 山海机甲战队 — 保持热爱，共赴山海。">
   <meta name="twitter:image" content="https://hebutmas.github.io/source/logo/color_logo.png">
-  <link rel="icon" href="source/logo/color_logo.png" type="image/png">
+  <link rel="icon" href="source/logo/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
   <header id="navbar">
     <nav>
       <a href="index.html" class="logo">
-        <img src="source/logo/title_logo.png" alt="山海机甲" class="logo-img">
+        <img decoding="async" src="source/logo/title_logo.png" alt="山海机甲" class="logo-img">
         <span class="logo-text">山海<span class="logo-dot"></span>机甲</span>
       </a>
       <ul id="nav-links">
@@ -84,7 +84,7 @@
     <section id="home" class="hero-section">
       <!-- 视频背景 -->
       <div class="hero-video-wrap">
-        <video class="hero-video" autoplay loop muted playsinline>
+        <video class="hero-video" autoplay loop muted playsinline preload="metadata" poster="source/banner/hero-poster.jpg">
           <source src="source/video.mp4" type="video/mp4">
         </video>
         <div class="hero-video-overlay"></div>
@@ -376,7 +376,7 @@
         <div class="robots-grid">
           <div class="robot-card card">
             <div class="robot-card-visual">
-              <img src="source/robots/infantry.jpg" alt="步兵机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+              <img loading="lazy" decoding="async" src="source/robots/infantry.jpg" alt="步兵机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
             </div>
             <div class="robot-card-body">
               <h3>步兵机器人</h3>
@@ -387,7 +387,7 @@
           </div>
           <div class="robot-card card">
             <div class="robot-card-visual">
-              <img src="source/robots/hero.jpg" alt="英雄机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+              <img loading="lazy" decoding="async" src="source/robots/hero.jpg" alt="英雄机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
             </div>
             <div class="robot-card-body">
               <h3>英雄机器人</h3>
@@ -398,7 +398,7 @@
           </div>
           <div class="robot-card card">
             <div class="robot-card-visual">
-              <img src="source/robots/sentry.jpg" alt="哨兵机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+              <img loading="lazy" decoding="async" src="source/robots/sentry.jpg" alt="哨兵机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
             </div>
             <div class="robot-card-body">
               <h3>哨兵机器人</h3>
@@ -409,7 +409,7 @@
           </div>
           <div class="robot-card card">
             <div class="robot-card-visual">
-              <img src="source/robots/engineer.jpg" alt="工程机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+              <img loading="lazy" decoding="async" src="source/robots/engineer.jpg" alt="工程机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
             </div>
             <div class="robot-card-body">
               <h3>工程机器人</h3>
@@ -420,7 +420,7 @@
           </div>
           <div class="robot-card card">
             <div class="robot-card-visual">
-              <img src="source/robots/dart.jpg" alt="飞镖机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+              <img loading="lazy" decoding="async" src="source/robots/dart.jpg" alt="飞镖机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
             </div>
             <div class="robot-card-body">
               <h3>飞镖机器人</h3>
@@ -431,7 +431,7 @@
           </div>
           <div class="robot-card card">
             <div class="robot-card-visual">
-              <img src="source/robots/drone.jpg" alt="无人机" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+              <img loading="lazy" decoding="async" src="source/robots/drone.jpg" alt="无人机" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
             </div>
             <div class="robot-card-body">
               <h3>无人机</h3>
@@ -452,17 +452,17 @@
         <p class="section-desc">感谢以下 2026 赛季赞助商对山海机甲战队的大力支持</p>
         <div class="partners-grid">
           <a href="https://www.china-amass.com/" target="_blank" rel="noopener" class="partner-card card">
-            <div class="partner-logo"><img src="source/partners/amass.png" alt="Amass"></div>
+            <div class="partner-logo"><img loading="lazy" decoding="async" src="source/partners/amass.png" alt="Amass"></div>
             <span class="partner-name">Amass</span>
             <span class="partner-desc">连接器解决方案</span>
           </a>
           <a href="https://www.taobao.com/list/item/a2ZDVVVzbVlBL0lsMk9jTW01eUN4Zz09.htm" target="_blank" rel="noopener" class="partner-card card">
-            <div class="partner-logo"><img src="source/partners/byehassle.png" alt="BYEHassle"></div>
+            <div class="partner-logo"><img loading="lazy" decoding="async" src="source/partners/byehassle.png" alt="BYEHassle"></div>
             <span class="partner-name">BYEHassle</span>
             <span class="partner-desc">3D 打印耗材</span>
           </a>
           <a href="https://gy2025.com/" target="_blank" rel="noopener" class="partner-card card">
-            <div class="partner-logo"><img src="source/partners/quanzhou.png" alt="铨洲智造"></div>
+            <div class="partner-logo"><img loading="lazy" decoding="async" src="source/partners/quanzhou.png" alt="铨洲智造"></div>
             <span class="partner-name">铨洲智造</span>
             <span class="partner-desc">精密加工</span>
           </a>
@@ -542,10 +542,10 @@
           <h4>机构单位</h4>
           <div class="footer-institutions">
             <a href="https://www.hebut.edu.cn/" target="_blank" rel="noopener" class="footer-inst-logo">
-              <img src="source/logo/hebut_logo.png" alt="河北工业大学">
+              <img loading="lazy" decoding="async" src="source/logo/hebut_logo.png" alt="河北工业大学">
             </a>
             <a href="https://mes.hebut.edu.cn/" target="_blank" rel="noopener" class="footer-inst-logo">
-              <img src="source/logo/hebut_me.png" alt="机械工程学院">
+              <img loading="lazy" decoding="async" src="source/logo/hebut_me.png" alt="机械工程学院">
             </a>
           </div>
         </div>

@@ -121,6 +121,15 @@ nav ul li a.nav-active { color: var(--accent); font-weight: 600; }
   transform: translate(-50%, -50%);
   object-fit: cover;
 }
+/* 尊重系统的「减弱动态效果」设置：直接隐藏背景视频，避免持续解码带来的卡顿 */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
+}
+/* 小屏设备算力有限，背景视频收益低、代价高，改用封面图 */
+@media (max-width: 640px) {
+  .hero-video { display: none; }
+  .hero-video-wrap { background: url('source/banner/hero-poster.jpg') center/cover no-repeat; }
+}
 .hero-video-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(

@@ -5,7 +5,9 @@
 (function () {
   'use strict';
 
-  var PHOTO_BASE = '../source/photos/members/';
+  // 相对站点根目录的路径：线上（域名根）与本地 file:// 双击打开都能正常加载
+  // 注意不要写成 '../source/...'，那会跳出站点目录，导致本地预览时头像全部 404
+  var PHOTO_BASE = 'source/photos/members/';
 
   // ============================================================
   // 成员数据 — 在此处添加/修改成员
@@ -18,54 +20,47 @@
   //   留空时弹窗会回退显示 bio / destination
   // ============================================================
   var MEMBER_DATA = {
+    // 正式队员 — 按兵种分组，数据来源：山海机甲战队正式队员信息收集表.xlsx
+    // role 默认为原表「所属兵种或部门」原文（并入重装的张晨、胡浩哲已按现兵种改写为「重装」）
+    // major 为原表「班级」，bio 为原表「寄语」
     current: [
       {
-        group: '管理层',
+        group: '步兵',
         members: [
-          { name: '队长名字', role: '队长', major: '', bio: '统筹团队战略与日常管理', photo: 'captain.jpg' },
-          { name: '副队长名字', role: '副队长', major: '', bio: '协助队长管理，分管技术方向', photo: 'vice-captain.jpg' },
-          { name: '项管名字', role: '项目管理', major: '', bio: '项目进度跟踪与资源协调', photo: 'pm.jpg' }
+          { name: '康佳宏', role: '步兵', major: '物理2412', bio: '热爱不止于想象，答案永远在下一次迭代，能跑就上，不能跑就修', photo: 'kangjiahong.jpg' },
+          { name: '张世杰', role: '步兵组', major: '机电242', bio: '我要成为旮旯给木高手', photo: 'zhangshijie.jpg' },
+          { name: '冷瑞寒', role: '步兵电控', major: '物联网241', bio: '调车车，不小心撞烂车车，机械修车车，接着调车车…', photo: 'lengruihan.jpg' }
         ]
       },
       {
-        group: '机械组',
+        group: '重装',
         members: [
-          { name: '机械组长', role: '机械组 · 组长', major: '', bio: '机器人底盘与发射机构设计', photo: 'mech-lead.jpg' },
-          { name: '队员名字', role: '机械组 · 结构设计', major: '', bio: '机器人结构建模与仿真分析', photo: 'mech-structure.jpg' },
-          { name: '队员名字', role: '机械组 · 加工制造', major: '', bio: 'CNC加工与3D打印零件生产', photo: 'mech-fab.jpg' },
-          { name: '队员名字', role: '机械组 · 装配测试', major: '', bio: '机器人整机装配与机械性能测试', photo: 'mech-assembly.jpg' }
+          { name: '孟庆翔', role: '重装', major: '机电241', bio: '', photo: 'mengqingxiang.jpg' },
+          { name: '崔昊雨', role: '串腿 重装', major: '测控244', bio: '保持山海，共赴热爱。', photo: 'cuihaoyu.jpg' },
+          { name: '王圣尧', role: '重装', major: '机设242', bio: '那些没有天赋的人呢?他们的人生从一开始就浪费了吗?', photo: 'wangshengyao.jpg' },
+          { name: '张召朋', role: '重装机械', major: '智造241', bio: '会赢的', photo: 'zhangzhaopeng.jpg' },
+          { name: '赵彦顺', role: '重装电控', major: '自动化242', bio: '恍恍昨日桃花依旧，看花的人了却因果尽头', photo: 'zhaoyanshun.jpg' },
+          // 原「英雄」「工程」两组已并入重装；张晨原表写「英雄组」、胡浩哲原表写「工程电控」，role 已随现兵种统一
+          { name: '张晨', role: '重装', major: '机设245', bio: '英雄被删了，zdjd🤔', photo: 'zhangchen.jpg' },
+          { name: '胡浩哲', role: '重装', major: '车辆244', bio: '', photo: 'huhaozhe.jpg' }
         ]
       },
       {
-        group: '硬件组',
+        group: '哨兵',
+        // 暂为空组占位：当前 13 位正式队员中无人填写哨兵，后续有人再加入 members
+        members: []
+      },
+      {
+        group: '飞镖 · 无人机',
         members: [
-          { name: '硬件组长', role: '硬件组 · 组长', major: '', bio: 'PCB设计与硬件系统架构', photo: 'hw-lead.jpg' },
-          { name: '队员名字', role: '硬件组 · 电路设计', major: '', bio: '原理图设计、元器件选型与电路仿真', photo: 'hw-circuit.jpg' },
-          { name: '队员名字', role: '硬件组 · 电源管理', major: '', bio: '电池管理系统与功率变换电路', photo: 'hw-power.jpg' }
+          { name: '高士昂', role: '飞镖，无人机', major: '机设242', bio: '测测镖', photo: 'gaoshiang.jpg' },
+          { name: '王鑫港', role: '电控组', major: '电子2414', bio: '保持热爱，共赴山海', photo: 'wangxingang.jpg' }
         ]
       },
       {
-        group: '电控组',
+        group: '硬件',
         members: [
-          { name: '电控组长', role: '电控组 · 组长', major: '', bio: '嵌入式系统与运动控制算法', photo: 'ctrl-lead.jpg' },
-          { name: '队员名字', role: '电控组 · 嵌入式开发', major: '', bio: 'STM32底层驱动与CAN总线通信', photo: 'ctrl-embedded.jpg' },
-          { name: '队员名字', role: '电控组 · 控制算法', major: '', bio: 'PID控制、云台稳定与运动规划', photo: 'ctrl-algorithm.jpg' }
-        ]
-      },
-      {
-        group: '视觉组',
-        members: [
-          { name: '视觉组长', role: '视觉组 · 组长', major: '', bio: '计算机视觉与自动瞄准系统', photo: 'vis-lead.jpg' },
-          { name: '队员名字', role: '视觉组 · 目标检测', major: '', bio: '装甲板识别、能量机关检测算法', photo: 'vis-detection.jpg' },
-          { name: '队员名字', role: '视觉组 · 模型部署', major: '', bio: '神经网络训练与嵌入式端推理部署', photo: 'vis-deploy.jpg' }
-        ]
-      },
-      {
-        group: '运营组',
-        members: [
-          { name: '运营组长', role: '运营组 · 组长', major: '', bio: '战队宣传、赞助对接与外联事务', photo: 'ops-lead.jpg' },
-          { name: '队员名字', role: '运营组 · 宣传设计', major: '', bio: '海报设计、视频剪辑与新媒体运营', photo: 'ops-media.jpg' },
-          { name: '队员名字', role: '运营组 · 财务后勤', major: '', bio: '经费管理、物资采购与出行安排', photo: 'ops-finance.jpg' }
+          { name: '旷朝阳', role: '硬件组', major: '智能242', bio: '穷究原理，洞悉本质，脚踏实地，实事求是。', photo: 'kuangzhaoyang.jpg' }
         ]
       }
     ],

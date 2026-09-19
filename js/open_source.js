@@ -26,6 +26,12 @@
   // 在此数组中添加/修改论坛开源链接，每条记录包含 title、description、url、category
   var FORUM_LINKS = [
     {
+      title: '山海机甲串联腿步兵 + 全构型功率控制技术方案',
+      description: '串联腿步兵结构设计与【RM2024-2025】全构型功率控制技术方案开源（先制预发布版），含机械图纸与控制算法',
+      url: 'https://bbs.robomaster.com/article/1969319?source=1',
+      category: '机械 · 电控'
+    },
+    {
       title: 'RM2025 半舵步兵开源',
       description: '半舵步兵完整三维图纸与说明文档，包含机械结构设计',
       url: 'https://bbs.robomaster.com/article/811147',

@@ -135,8 +135,11 @@
   function createMemberCard(member, isAlumni) {
     var card = document.createElement('div');
     card.className = 'member-card card is-clickable' + (isAlumni ? ' alumni-card' : '');
+    // 用 role="button" 而不是真 <button>：卡片内含 <h3> 等流式内容，<button> 只允许短语内容，
+    // 且会带进 UA 的字体与文本对齐样式。tabindex + Enter/Space 已满足键盘可达。
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-haspopup', 'dialog');
     card.setAttribute('aria-label', member.name + ' — 查看详细介绍');
 
     // 点击 / 回车 / 空格 打开详情弹窗
@@ -239,8 +242,29 @@
 
     modalClose.addEventListener('click', closeModal);
     modalOverlay.addEventListener('click', closeModal);
+
+    // 键盘：Esc 关闭；Tab 锁在弹窗内（面板 + 关闭按钮），焦点不跑到背后的页面
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+      if (!modal.classList.contains('active')) return;
+      if (e.key === 'Escape') { closeModal(); return; }
+      if (e.key !== 'Tab') return;
+      var focusables = modalPanel.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusables.length) {
+        e.preventDefault();
+        modalPanel.focus();
+        return;
+      }
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+      if (e.shiftKey && (document.activeElement === first || document.activeElement === modalPanel)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     });
   }
 
@@ -278,18 +302,27 @@
       modalBody.appendChild(p);
     });
 
+    // 对话框可读名称：带上成员姓名
+    modal.setAttribute('aria-label', '成员详情：' + (member.name || ''));
+
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    modalClose.focus();
+    modalPanel.focus();   // 焦点移入弹窗（面板本身带 tabindex="-1"）
   }
 
   function closeModal() {
-    if (!modal) return;
+    if (!modal || !modal.classList.contains('active')) return;
     modal.classList.remove('active');
+    // 先把焦点还给触发卡片再设 aria-hidden，否则浏览器会拦截隐藏含焦点的元素
+    if (lastFocused && typeof lastFocused.focus === 'function' && document.contains(lastFocused)) {
+      lastFocused.focus();
+    } else if (document.activeElement && modal.contains(document.activeElement)) {
+      document.activeElement.blur();
+    }
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    lastFocused = null;
   }
 
   // 汇总要展示的段落文本

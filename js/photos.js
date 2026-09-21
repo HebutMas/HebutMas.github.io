@@ -45,33 +45,88 @@
     renderGallery(grid);
 
     // --- 灯箱逻辑 ---
-    if (!lightbox) return;
+    if (!lightbox || !lightboxImg || !lightboxClose) return;
+
+    var lastTrigger = null;   // 打开灯箱的元素，关闭后把焦点还给它
+
+    // 打开灯箱：写入图片与标题 → 焦点移入关闭按钮 → 锁定页面滚动
+    function openLightbox(trigger, src, title) {
+      lastTrigger = trigger || null;
+      lightboxImg.src = PHOTO_BASE + src;
+      lightboxImg.alt = title || '';
+      lightboxTitle.textContent = title || '';
+      // 对话框可读名称：带上图片标题
+      lightbox.setAttribute('aria-label', title ? '图片预览：' + title : '图片预览');
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    }
+
+    // 关闭灯箱：焦点还给触发元素 → 隐藏容器 → 解除滚动锁
+    function closeLightbox() {
+      if (!lightbox.classList.contains('active')) return;
+      lightbox.classList.remove('active');
+      // 先把焦点移出灯箱再设 aria-hidden，否则浏览器会拦截隐藏含焦点的元素
+      if (lastTrigger && document.contains(lastTrigger)) {
+        lastTrigger.focus();
+      } else if (document.activeElement && lightbox.contains(document.activeElement)) {
+        document.activeElement.blur();
+      }
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lightboxImg.removeAttribute('src');
+      lightboxImg.alt = '';
+      lastTrigger = null;
+    }
+
+    function openFromItem(item) {
+      var src = item.getAttribute('data-src');
+      var title = item.getAttribute('data-title');
+      if (!src) return;
+      openLightbox(item, src, title);
+    }
 
     // 点击卡片打开灯箱
     grid.addEventListener('click', function (e) {
       var item = e.target.closest('.gallery-item');
       if (!item) return;
-      var src = item.getAttribute('data-src');
-      var title = item.getAttribute('data-title');
-      if (!src) return;
-      lightboxImg.src = PHOTO_BASE + src;
-      lightboxImg.alt = title;
-      lightboxTitle.textContent = title;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      openFromItem(item);
     });
 
-    // 关闭灯箱
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-      lightboxImg.src = '';
-    }
+    // 键盘：Enter / 空格 与点击等效
+    grid.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+      var item = e.target.closest('.gallery-item');
+      if (!item) return;
+      e.preventDefault();
+      openFromItem(item);
+    });
 
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', function (e) {
       if (e.target === lightbox) closeLightbox();
     });
+
+    // 键盘：Esc 关闭；Tab 锁在灯箱内，焦点不跑到背后的页面
+    lightbox.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closeLightbox(); return; }
+      if (e.key !== 'Tab') return;
+      var focusables = lightbox.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusables.length) return;
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+      if (e.shiftKey && (document.activeElement === first || document.activeElement === lightbox)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && lightbox.classList.contains('active')) {
         closeLightbox();
@@ -97,6 +152,13 @@
       item.setAttribute('data-title', photo.title);
 
       if (photo.src) {
+        // 键盘同样可打开灯箱。这里用 role="button" 而不是真 <button>：卡片内有 <div> 覆盖层，
+        // 且 style.css 的 .gallery-item 字号/对齐按 div 继承，换 button 会带进 UA 样式。
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('aria-haspopup', 'dialog');
+        item.setAttribute('aria-label', '查看大图：' + photo.title);
+
         // 有照片：显示图片
         var img = document.createElement('img');
         img.src = PHOTO_BASE + photo.src;

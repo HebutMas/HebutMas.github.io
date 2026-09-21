@@ -10,39 +10,47 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0b0d">
+  <meta name="color-scheme" content="dark">
   <title> 这期神了 | 山海机甲</title>
   <!-- 隐藏彩蛋页：不收录、不索引、不进 sitemap -->
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="source/logo/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" media="print" onload="this.media='all'"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@500;600;700&display=swap">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@500;600;700&display=swap">
+  </noscript>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
   <header id="navbar">
-    <nav>
+    <nav aria-label="主导航">
       <a href="index.html" class="logo">
-        <img decoding="async" src="source/logo/title_logo.png" alt="山海机甲" class="logo-img">
+        <img decoding="async" width="178" height="38" src="source/logo/title_logo.png" alt="山海机甲" class="logo-img">
         <span class="logo-text">山海<span class="logo-dot"></span>机甲</span>
       </a>
       <ul id="nav-links">
         <li><a href="index.html">返回首页</a></li>
         <li><a href="photos.html">正经图集</a></li>
       </ul>
-      <button class="menu-toggle" id="menu-toggle" aria-label="菜单">
-        <span></span><span></span><span></span>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
     </nav>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
     <section class="page-header-section">
       <div class="section-eyebrow">Secret · 仅限内部传阅</div>
-      <h2 class="section-title"> 这期神了</h2>
-      <p class="section-desc" style="margin: 0 auto;">山海机甲的温馨时刻。</p>
+      <h1 class="section-title">这期神了</h1>
+      <p class="section-desc">山海机甲的温馨时刻。</p>
     </section>
 
     <section class="section" style="padding-top: 40px;">
@@ -53,8 +61,8 @@
       </div>
     </section>
 
-    <div class="gallery-lightbox" id="ghost-lightbox">
-      <span class="gallery-lightbox-close" id="ghost-lightbox-close">&times;</span>
+    <div class="gallery-lightbox" id="ghost-lightbox" role="dialog" aria-modal="true" aria-label="图片预览" aria-hidden="true">
+      <button type="button" class="gallery-lightbox-close" id="ghost-lightbox-close" aria-label="关闭预览">&times;</button>
       <img decoding="async" src="" alt="" id="ghost-lightbox-img">
       <p class="gallery-lightbox-title" id="ghost-lightbox-title"></p>
     </div>

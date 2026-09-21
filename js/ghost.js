@@ -66,31 +66,60 @@
 
     if (!lightbox) return;
 
+    var lastFocus = null;
+
     grid.addEventListener('click', function (e) {
       var item = e.target.closest('.gallery-item');
       if (!item) return;
+      openLightbox(item);
+    });
+
+    // 键盘打开：与 photos.html 的图集保持一致
+    grid.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      var item = e.target.closest('.gallery-item');
+      if (!item) return;
+      e.preventDefault();
+      openLightbox(item);
+    });
+
+    function openLightbox(item) {
       var src = item.getAttribute('data-src');
       var title = item.getAttribute('data-title');
       if (!src) return;
+      lastFocus = item;
       lightboxImg.src = PHOTO_BASE + src;
-      lightboxImg.alt = title;
-      lightboxTitle.textContent = title;
+      lightboxImg.alt = title || '';
+      lightboxTitle.textContent = title || '';
+      lightbox.setAttribute('aria-label', title ? '图片预览：' + title : '图片预览');
+      lightbox.setAttribute('aria-hidden', 'false');
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
-    });
-
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-      lightboxImg.src = '';
+      if (lightboxClose) lightboxClose.focus();
     }
 
-    lightboxClose.addEventListener('click', closeLightbox);
+    function closeLightbox() {
+      if (!lightbox.classList.contains('active')) return;
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      // 先交还焦点再隐藏，避免焦点丢在不可见元素上
+      if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImg.removeAttribute('src');   // 不用 src=''，否则会重新请求当前页面
+      lastFocus = null;
+    }
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', function (e) {
       if (e.target === lightbox) closeLightbox();
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+      // 焦点锁在弹层内
+      if (e.key === 'Tab' && lightbox.classList.contains('active') && lightboxClose) {
+        e.preventDefault();
+        lightboxClose.focus();
+      }
     });
   });
 

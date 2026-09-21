@@ -2,7 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0b0d">
+  <meta name="color-scheme" content="dark">
   <title>山海机甲 | HEBUT RoboMaster 战队</title>
   <meta name="description" content="河北工业大学 RoboMaster 山海机甲战队 — 保持热爱，共赴山海。成立于2022年，专注RoboMaster机甲大师机器人竞赛，下设机械、电控、硬件、视觉、宣传五组，斩获多项国家省部级奖项。">
   <meta name="keywords" content="山海机甲,RoboMaster,河北工业大学,机器人竞赛,机甲大师,HEBUT,机器人战队,RoboMaster战队,机甲,机器人,大学生竞赛">
@@ -25,7 +27,13 @@
   <link rel="icon" href="source/logo/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <!-- 字体异步加载，不阻塞首屏；Google Fonts 在部分网络下不可达时自动回退系统字体栈 -->
+  <link rel="stylesheet" media="print" onload="this.media='all'"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@500;600;700&display=swap">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@500;600;700&display=swap">
+  </noscript>
+  <link rel="preload" as="image" href="source/banner/hero-poster.jpg">
   <link rel="stylesheet" href="style.css">
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -57,11 +65,13 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
   <!-- ========== 导航栏 ========== -->
   <header id="navbar">
-    <nav>
+    <nav aria-label="主导航">
       <a href="index.html" class="logo">
-        <img decoding="async" src="source/logo/title_logo.png" alt="山海机甲" class="logo-img">
+        <img decoding="async" width="178" height="38" src="source/logo/title_logo.png" alt="山海机甲" class="logo-img">
         <span class="logo-text">山海<span class="logo-dot"></span>机甲</span>
       </a>
       <ul id="nav-links">
@@ -72,40 +82,48 @@
         <li><a href="photos.html">战队图集</a></li>
         <li><a href="open_source.html">开源项目</a></li>
       </ul>
-      <button class="menu-toggle" id="menu-toggle" aria-label="菜单">
-        <span></span><span></span><span></span>
+      <button class="menu-toggle" id="menu-toggle" type="button"
+              aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
     </nav>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
 
     <!-- ========== Hero ========== -->
     <section id="home" class="hero-section">
-      <!-- 视频背景 -->
-      <div class="hero-video-wrap">
-        <video class="hero-video" autoplay loop muted playsinline preload="metadata" poster="source/banner/hero-poster.jpg">
+      <!-- 视频背景（纯装饰）：preload="none"，由 JS 判断屏幕尺寸与动效偏好后再播放，
+           移动端与「减弱动态效果」下完全不下载这段 9MB 视频，直接用封面图 -->
+      <div class="hero-video-wrap" aria-hidden="true">
+        <video class="hero-video" loop muted playsinline preload="none" poster="source/banner/hero-poster.jpg">
           <source src="source/video.mp4" type="video/mp4">
         </video>
         <div class="hero-video-overlay"></div>
       </div>
-      <div class="hero-grid-bg"></div>
-      <div class="hero-glow hero-glow--1"></div>
-      <div class="hero-glow hero-glow--2"></div>
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow--1" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow--2" aria-hidden="true"></div>
       <div class="hero-content">
-        <h1 class="hero-title">山海<span class="hl">机甲</span></h1>
+        <p class="hero-badge"><span class="hero-badge-dot" aria-hidden="true"></span>HEBUT ROBOMASTER TEAM</p>
+        <h1 class="hero-title">山海机甲</h1>
         <p class="hero-subtitle">保持热爱，共赴山海</p>
         <p class="hero-desc">河北工业大学 RoboMaster 战队，成立于 2022 年。<br>以山海之名，赴机甲之约。</p>
         <div class="hero-actions">
           <a href="#robots" class="btn btn-primary">探索机器人</a>
           <a href="#contact" class="btn btn-outline">加入我们</a>
-          <a href="members.html" class="btn btn-ghost">历代队员 →</a>
+          <a href="members.html" class="btn btn-ghost">历代队员</a>
         </div>
       </div>
-      <div class="scroll-hint" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+      <button class="hero-media-toggle" type="button" hidden
+              aria-label="暂停背景视频" aria-pressed="false">
+        <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>
+        <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
+      </button>
+      <button class="scroll-hint" type="button">
         <span>向下探索</span>
-        <div class="scroll-hint-line"></div>
-      </div>
+        <span class="scroll-hint-line" aria-hidden="true"></span>
+      </button>
     </section>
 
     <!-- ========== 数据条 ========== -->
@@ -237,14 +255,14 @@
 
         <div class="ach-grid">
           <!-- 2027 -->
-          <div class="ach-year-block">
+          <div>
             <div class="ach-year-head">
               <span class="ach-year-label">2027</span>
               <span class="ach-year-tagline">未完待续</span>
             </div>
             <div class="ach-year-cards">
               <div class="ach-card ach-card--outline">
-                <span class="ach-card-medal">✨</span>
+                <svg class="ach-card-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5 10 9M16 2.5 14 9"/><circle cx="12" cy="14.5" r="5.5"/></svg>
                 <div class="ach-card-info">
                   <strong>未完待续</strong>
                   <span class="ach-tag">新赛季</span>
@@ -254,14 +272,14 @@
           </div>
 
           <!-- 2026 -->
-          <div class="ach-year-block">
+          <div>
             <div class="ach-year-head">
               <span class="ach-year-label">2026</span>
               <span class="ach-year-tagline">新赛季</span>
             </div>
             <div class="ach-year-cards">
               <div class="ach-card ach-card--bronze">
-                <span class="ach-card-medal">🥉</span>
+                <svg class="ach-card-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5 10 9M16 2.5 14 9"/><circle cx="12" cy="14.5" r="5.5"/></svg>
                 <div class="ach-card-info">
                   <strong>国家级三等奖 · 高校联盟赛华北站</strong>
                   <span class="ach-tag">联盟赛</span>
@@ -271,21 +289,21 @@
           </div>
 
           <!-- 2025 -->
-          <div class="ach-year-block">
+          <div>
             <div class="ach-year-head">
               <span class="ach-year-label">2025</span>
               <span class="ach-year-tagline">巅峰赛季</span>
             </div>
             <div class="ach-year-cards">
               <div class="ach-card ach-card--gold">
-                <span class="ach-card-medal">🥇</span>
+                <svg class="ach-card-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5 10 9M16 2.5 14 9"/><circle cx="12" cy="14.5" r="5.5"/></svg>
                 <div class="ach-card-info">
                   <strong>国家级二等奖 · 高校联盟赛山东站</strong>
                   <span class="ach-tag">联盟赛</span>
                 </div>
               </div>
               <div class="ach-card ach-card--silver">
-                <span class="ach-card-medal">🥈</span>
+                <svg class="ach-card-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5 10 9M16 2.5 14 9"/><circle cx="12" cy="14.5" r="5.5"/></svg>
                 <div class="ach-card-info">
                   <strong>国家级三等奖 · 超级对抗赛东部赛区 32 强</strong>
                   <span class="ach-tag ach-tag--main">超级对抗赛</span>
@@ -295,14 +313,14 @@
           </div>
 
           <!-- 2024 -->
-          <div class="ach-year-block">
+          <div>
             <div class="ach-year-head">
               <span class="ach-year-label">2024</span>
               <span class="ach-year-tagline">突破赛季</span>
             </div>
             <div class="ach-year-cards">
               <div class="ach-card ach-card--gold">
-                <span class="ach-card-medal">🥇</span>
+                <svg class="ach-card-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5 10 9M16 2.5 14 9"/><circle cx="12" cy="14.5" r="5.5"/></svg>
                 <div class="ach-card-info">
                   <strong>国家级二等奖 · 超级对抗赛南部赛区 32 强</strong>
                   <span class="ach-tag ach-tag--main">超级对抗赛</span>
@@ -310,14 +328,14 @@
                 </div>
               </div>
               <div class="ach-card ach-card--bronze">
-                <span class="ach-card-medal">🥉</span>
+                <svg class="ach-card-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5 10 9M16 2.5 14 9"/><circle cx="12" cy="14.5" r="5.5"/></svg>
                 <div class="ach-card-info">
                   <strong>国家级三等奖 · 高校联盟赛山东站</strong>
                   <span class="ach-tag">联盟赛</span>
                 </div>
               </div>
               <div class="ach-card ach-card--bronze">
-                <span class="ach-card-medal">🥉</span>
+                <svg class="ach-card-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5 10 9M16 2.5 14 9"/><circle cx="12" cy="14.5" r="5.5"/></svg>
                 <div class="ach-card-info">
                   <strong>国家级三等奖 · 高校联盟赛辽宁站</strong>
                   <span class="ach-tag">联盟赛</span>
@@ -327,14 +345,14 @@
           </div>
 
           <!-- 2023 -->
-          <div class="ach-year-block">
+          <div>
             <div class="ach-year-head">
               <span class="ach-year-label">2023</span>
               <span class="ach-year-tagline">建队首战</span>
             </div>
             <div class="ach-year-cards">
               <div class="ach-card ach-card--gold">
-                <span class="ach-card-medal">🥇</span>
+                <svg class="ach-card-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5 10 9M16 2.5 14 9"/><circle cx="12" cy="14.5" r="5.5"/></svg>
                 <div class="ach-card-info">
                   <strong>国家级二等奖 · 高校联盟赛山东站</strong>
                   <span class="ach-tag">联盟赛</span>
@@ -342,7 +360,7 @@
                 </div>
               </div>
               <div class="ach-card ach-card--outline">
-                <span class="ach-card-medal">🏅</span>
+                <svg class="ach-card-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5 10 9M16 2.5 14 9"/><circle cx="12" cy="14.5" r="5.5"/></svg>
                 <div class="ach-card-info">
                   <strong>国家级三等奖 · 高校联盟赛辽宁站</strong>
                   <span class="ach-tag">联盟赛</span>
@@ -356,12 +374,12 @@
         <div class="ach-other">
           <h4 class="ach-other-title">其他竞赛成果</h4>
           <div class="ach-other-grid">
-            <div class="ach-other-item">🏆 国家级一等奖 <span>全国大学生电子设计大赛</span></div>
-            <div class="ach-other-item">🏆 国家级二等奖 / 全国第七 <span>华北五省机器人大赛</span></div>
-            <div class="ach-other-item">🏅 国家级三等奖 <span>全国大学生光电设计大赛</span></div>
-            <div class="ach-other-item">🏅 国家级三等奖 × 2 <span>机械创新设计大赛</span></div>
-            <div class="ach-other-item">🏅 河北省一等奖 <span>工程实践与创新能力大赛</span></div>
-            <div class="ach-other-item">🏅 二等奖 <span>智能机器人创意大赛</span></div>
+            <div class="ach-other-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h2.5a2.5 2.5 0 0 1 0 5H17M7 5H4.5a2.5 2.5 0 0 0 0 5H7"/><path d="M12 14v3M9 20h6M10 17h4"/></svg>国家级一等奖 <span>全国大学生电子设计大赛</span></div>
+            <div class="ach-other-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h2.5a2.5 2.5 0 0 1 0 5H17M7 5H4.5a2.5 2.5 0 0 0 0 5H7"/><path d="M12 14v3M9 20h6M10 17h4"/></svg>国家级二等奖 / 全国第七 <span>华北五省机器人大赛</span></div>
+            <div class="ach-other-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h2.5a2.5 2.5 0 0 1 0 5H17M7 5H4.5a2.5 2.5 0 0 0 0 5H7"/><path d="M12 14v3M9 20h6M10 17h4"/></svg>国家级三等奖 <span>全国大学生光电设计大赛</span></div>
+            <div class="ach-other-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h2.5a2.5 2.5 0 0 1 0 5H17M7 5H4.5a2.5 2.5 0 0 0 0 5H7"/><path d="M12 14v3M9 20h6M10 17h4"/></svg>国家级三等奖 × 2 <span>机械创新设计大赛</span></div>
+            <div class="ach-other-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h2.5a2.5 2.5 0 0 1 0 5H17M7 5H4.5a2.5 2.5 0 0 0 0 5H7"/><path d="M12 14v3M9 20h6M10 17h4"/></svg>河北省一等奖 <span>工程实践与创新能力大赛</span></div>
+            <div class="ach-other-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h2.5a2.5 2.5 0 0 1 0 5H17M7 5H4.5a2.5 2.5 0 0 0 0 5H7"/><path d="M12 14v3M9 20h6M10 17h4"/></svg>二等奖 <span>智能机器人创意大赛</span></div>
           </div>
         </div>
       </div>
@@ -376,7 +394,7 @@
         <div class="robots-grid">
           <div class="robot-card card">
             <div class="robot-card-visual">
-              <img loading="lazy" decoding="async" src="source/robots/infantry.jpg" alt="步兵机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+              <img loading="lazy" decoding="async" width="900" height="600" src="source/robots/infantry.jpg" alt="步兵机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
             </div>
             <div class="robot-card-body">
               <h3>步兵机器人</h3>
@@ -387,7 +405,7 @@
           </div>
           <div class="robot-card card">
             <div class="robot-card-visual">
-              <img loading="lazy" decoding="async" src="source/robots/hero.jpg" alt="英雄机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+              <img loading="lazy" decoding="async" width="900" height="600" src="source/robots/hero.jpg" alt="英雄机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
             </div>
             <div class="robot-card-body">
               <h3>英雄机器人</h3>
@@ -398,7 +416,7 @@
           </div>
           <div class="robot-card card">
             <div class="robot-card-visual">
-              <img loading="lazy" decoding="async" src="source/robots/sentry.jpg" alt="哨兵机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+              <img loading="lazy" decoding="async" width="900" height="600" src="source/robots/sentry.jpg" alt="哨兵机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
             </div>
             <div class="robot-card-body">
               <h3>哨兵机器人</h3>
@@ -409,7 +427,7 @@
           </div>
           <div class="robot-card card">
             <div class="robot-card-visual">
-              <img loading="lazy" decoding="async" src="source/robots/engineer.jpg" alt="工程机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+              <img loading="lazy" decoding="async" width="900" height="600" src="source/robots/engineer.jpg" alt="工程机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
             </div>
             <div class="robot-card-body">
               <h3>工程机器人</h3>
@@ -420,7 +438,7 @@
           </div>
           <div class="robot-card card">
             <div class="robot-card-visual">
-              <img loading="lazy" decoding="async" src="source/robots/dart.jpg" alt="飞镖机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+              <img loading="lazy" decoding="async" width="900" height="600" src="source/robots/dart.jpg" alt="飞镖机器人" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
             </div>
             <div class="robot-card-body">
               <h3>飞镖机器人</h3>
@@ -431,7 +449,7 @@
           </div>
           <div class="robot-card card">
             <div class="robot-card-visual">
-              <img loading="lazy" decoding="async" src="source/robots/drone.jpg" alt="无人机" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
+              <img loading="lazy" decoding="async" width="900" height="600" src="source/robots/drone.jpg" alt="无人机" onerror="this.parentElement.classList.add('robot-visual-fallback');this.style.display='none'">
             </div>
             <div class="robot-card-body">
               <h3>无人机</h3>
@@ -452,17 +470,17 @@
         <p class="section-desc">感谢以下 2026 赛季赞助商对山海机甲战队的大力支持</p>
         <div class="partners-grid">
           <a href="https://www.china-amass.com/" target="_blank" rel="noopener" class="partner-card card">
-            <div class="partner-logo"><img loading="lazy" decoding="async" src="source/partners/amass.png" alt="Amass"></div>
+            <div class="partner-logo"><img loading="lazy" decoding="async" width="56" height="56" src="source/partners/amass.png" alt="Amass"></div>
             <span class="partner-name">Amass</span>
             <span class="partner-desc">连接器解决方案</span>
           </a>
           <a href="https://www.taobao.com/list/item/a2ZDVVVzbVlBL0lsMk9jTW01eUN4Zz09.htm" target="_blank" rel="noopener" class="partner-card card">
-            <div class="partner-logo"><img loading="lazy" decoding="async" src="source/partners/byehassle.png" alt="BYEHassle"></div>
+            <div class="partner-logo"><img loading="lazy" decoding="async" width="56" height="56" src="source/partners/byehassle.png" alt="BYEHassle"></div>
             <span class="partner-name">BYEHassle</span>
             <span class="partner-desc">3D 打印耗材</span>
           </a>
           <a href="https://gy2025.com/" target="_blank" rel="noopener" class="partner-card card">
-            <div class="partner-logo"><img loading="lazy" decoding="async" src="source/partners/quanzhou.png" alt="铨洲智造"></div>
+            <div class="partner-logo"><img loading="lazy" decoding="async" width="47" height="56" src="source/partners/quanzhou.png" alt="铨洲智造"></div>
             <span class="partner-name">铨洲智造</span>
             <span class="partner-desc">精密加工</span>
           </a>
@@ -503,7 +521,7 @@
               </div>
             </div>
           </div>
-          <div class="join-card card card--accent-left">
+          <div class="join-card card">
             <h3>加入山海机甲</h3>
             <p>我们正在寻找热情澎湃的新成员。无论你的专业是机械、电子、计算机、设计还是管理——只要你对机器人技术有热忱，我们都期待你的加入。</p>
             <ul>
@@ -542,10 +560,10 @@
           <h4>机构单位</h4>
           <div class="footer-institutions">
             <a href="https://www.hebut.edu.cn/" target="_blank" rel="noopener" class="footer-inst-logo">
-              <img loading="lazy" decoding="async" src="source/logo/hebut_logo.png" alt="河北工业大学">
+              <img loading="lazy" decoding="async" width="46" height="42" src="source/logo/hebut_logo.png" alt="河北工业大学">
             </a>
             <a href="https://mes.hebut.edu.cn/" target="_blank" rel="noopener" class="footer-inst-logo">
-              <img loading="lazy" decoding="async" src="source/logo/hebut_me.png" alt="机械工程学院">
+              <img loading="lazy" decoding="async" width="281" height="42" src="source/logo/hebut_me.png" alt="机械工程学院">
             </a>
           </div>
         </div>

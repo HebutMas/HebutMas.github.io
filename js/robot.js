@@ -126,15 +126,15 @@
     var html = '';
     html += '<section class="page-header-section">';
     html += '<div class="section-eyebrow">' + esc(robot.en) + '</div>';
-    html += '<h2 class="section-title">' + esc(robot.name) + '</h2>';
-    html += '<p class="section-desc" style="margin:0 auto;">' + esc(robot.tagline) + '</p>';
+    html += '<h1 class="section-title">' + esc(robot.name) + '</h1>';
+    html += '<p class="section-desc">' + esc(robot.tagline) + '</p>';
     html += '</section>';
 
     html += '<section class="section" style="padding-top:40px;"><div class="section-container robot-detail-container">';
 
-    // 大图
+    // 大图（显式尺寸，避免加载时布局跳动）
     html += '<div class="robot-detail-hero">';
-    html += '<img src="' + esc(robot.img) + '" alt="' + esc(robot.name) + '"' +
+    html += '<img width="900" height="600" src="' + esc(robot.img) + '" alt="' + esc(robot.name) + '"' +
       ' onerror="this.parentElement.classList.add(\'robot-visual-fallback\');this.style.display=\'none\'">';
     html += '</div>';
 
@@ -180,9 +180,9 @@
     mount.innerHTML =
       '<section class="page-header-section">' +
       '<div class="section-eyebrow">Not Found</div>' +
-      '<h2 class="section-title">未找到该机器人</h2>' +
-      '<p class="section-desc" style="margin:0 auto;">链接可能有误，请返回机器人列表重新选择。</p>' +
-      '<div style="margin-top:28px;">' +
+      '<h1 class="section-title">未找到该机器人</h1>' +
+      '<p class="section-desc">链接可能有误，请返回机器人列表重新选择。</p>' +
+      '<div class="page-header-actions">' +
       '<a href="index.html#robots" class="btn btn-primary">返回机器人列表</a>' +
       '</div></section>';
   }

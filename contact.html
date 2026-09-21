@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0b0d">
+    <meta name="color-scheme" content="dark">
     <title>联系我们 - 河北工业大学山海机甲</title>
     <meta name="description" content="联系山海机甲战队 — 地址、邮箱、社交媒体。欢迎加入河北工业大学 RoboMaster 山海机甲战队。">
     <meta name="keywords" content="山海机甲,联系我们,河北工业大学,RoboMaster,加入战队,联系方式">
@@ -20,119 +22,183 @@
     <meta name="twitter:title" content="联系我们 | 山海机甲">
     <meta name="twitter:description" content="联系山海机甲战队。">
     <meta name="twitter:image" content="https://hebutmas.github.io/source/logo/color_logo.png">
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="source/logo/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- 字体异步加载，不阻塞首屏；Google Fonts 在部分网络下不可达时自动回退系统字体栈 -->
+    <link rel="stylesheet" media="print" onload="this.media='all'"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@500;600;700&display=swap">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@500;600;700&display=swap">
+    </noscript>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="index.html">
-                    <img decoding="async" src="source/logo/title_logo.png" alt="MAS Logo" class="logo-icon">
-                </a>
-            </div>
-            <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="https://www.robomaster.com/zh-CN" target="_blank">赛事链接</a></li>
-                <li><a href="members.html">战队成员</a></li>
-                <li><a href="open_source.html">项目开源</a></li>
-                <li><a href="contact.html">联系我们</a></li>
-            </ul>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
 
-    <main>
-        <section class="page-header">
-            <h1>联系我们</h1>
-            <p>欢迎与我们取得联系</p>
-        </section>
+  <a class="skip-link" href="#main">跳到主要内容</a>
 
-        <section class="contact-section">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2>联系方式</h2>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <h3>地址</h3>
-                            <p>天津市北辰区西平道 5340 号 河北工业大学</p>
-                        </div>
-                        <div class="contact-method">
-                            <h3>邮箱</h3>
-                            <p><a href="mailto:contact@example.com">sji733055@gmail.com</a></p>
-                        </div>
-                        <div class="contact-method">
-                            <h3>社交媒体</h3>
-                            <div class="social-links">
-                                <a href="https://space.bilibili.com/495153187" title="Bilibili">
-                                    <img loading="lazy" decoding="async" src="source/icons/bilibili.svg" alt="Bilibili">
-                                </a>
-                                <a href="https://github.com/SCU-Hotpot" title="GitHub">
-                                    <img loading="lazy" decoding="async" src="source/icons/github.svg" alt="GitHub">
-                                </a>
-                                <a href="https://mp.weixin.qq.com/s/_IwysdZ0XtVuNgU50WqRaw" title="微信">
-                                    <img loading="lazy" decoding="async" src="source/icons/wechat.svg" alt="WeChat">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h2>发送消息</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">姓名</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">邮箱</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">消息</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">发送</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
+  <header id="navbar">
+    <nav aria-label="主导航">
+      <a href="index.html" class="logo">
+        <img decoding="async" width="178" height="38" src="source/logo/title_logo.png" alt="山海机甲" class="logo-img">
+        <span class="logo-text">山海<span class="logo-dot"></span>机甲</span>
+      </a>
+      <ul id="nav-links">
+        <li><a href="index.html#about">关于我们</a></li>
+        <li><a href="index.html#team-groups">团队架构</a></li>
+        <li><a href="index.html#achievements">赛事战绩</a></li>
+        <li><a href="index.html#robots">机器人</a></li>
+        <li><a href="photos.html">战队图集</a></li>
+        <li><a href="open_source.html">开源项目</a></li>
+        <li><a href="index.html#contact" aria-current="page">联系我们</a></li>
+      </ul>
+      <button class="menu-toggle" id="menu-toggle" type="button"
+              aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </nav>
+  </header>
 
-    <footer>
-        <div class="footer-main-content">
-            <div class="footer-left">
-                <div class="school-logo">
-                    <h3>机构单位</h3>
-                    <a href="https://www.hebut.edu.cn/" target="_blank"><img loading="lazy" decoding="async" src="source/logo/hebut_logo.png" alt="hebut Logo"></a>
-                    <a href="https://mes.hebut.edu.cn/" target="_blank"><img loading="lazy" decoding="async" src="source/logo/hebut_me.png" alt="me Logo"></a>
-                </div>
+  <main id="main" tabindex="-1">
+
+    <section class="page-header-section">
+      <div class="section-eyebrow">Contact</div>
+      <h1 class="section-title">联系我们</h1>
+      <p class="section-desc">欢迎与我们取得联系</p>
+    </section>
+
+    <section class="section">
+      <div class="section-container">
+        <div class="section-eyebrow">Get in Touch</div>
+        <h2 class="section-title">联系方式</h2>
+        <p class="section-desc">欢迎通过邮箱、社交媒体或线下地址与我们取得联系。</p>
+        <div class="contact-grid">
+          <div class="contact-info-list">
+            <div class="contact-row">
+              <div class="contact-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="10" r="7"/><path d="M12 22v-5"/><path d="M12 2v4"/></svg></div>
+              <div><h4>地址</h4><p>天津市北辰区西平道 5340 号 河北工业大学</p></div>
             </div>
-            <div class="footer-divider"></div>
-            <div class="footer-right">
-                <div class="partners-footer">
-                    <h3>合作伙伴</h3>
-                    <div class="partners-list">
-                        <a href="https://www.china-amass.com/"><img loading="lazy" decoding="async" src="source/partners/amass.png" alt="Amass"></a>
-                        <a href="https://www.taobao.com/list/item/a2ZDVVVzbVlBL0lsMk9jTW01eUN4Zz09.htm"><img loading="lazy" decoding="async" src="source/partners/byehassle.png" alt="BYEHassle 耗材"></a>
-                        <a href="https://gy2025.com/"><img loading="lazy" decoding="async" src="source/partners/quanzhou.png" alt="铨洲智造"></a>
-                        <a href="#join" class="partner-vacancy"><span>+</span><span>赞助商招租</span></a>
-                    </div>
-                    <p>（以上排名不分先后）</p>
-                </div>
-                </div>
+            <div class="contact-row">
+              <div class="contact-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg></div>
+              <div><h4>邮箱</h4><a href="mailto:sji733055@gmail.com">sji733055@gmail.com</a></div>
             </div>
+            <div class="contact-row">
+              <div class="contact-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg></div>
+              <div>
+                <h4>社交媒体</h4>
+                <div class="social-chips">
+                  <a href="https://space.bilibili.com/2055273988" target="_blank" rel="noopener" class="social-chip">Bilibili</a>
+                  <a href="https://github.com/HebutMas" target="_blank" rel="noopener" class="social-chip">GitHub</a>
+                  <a href="https://mp.weixin.qq.com/s/_IwysdZ0XtVuNgU50WqRaw" target="_blank" rel="noopener" class="social-chip">微信公众号</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="join-card card">
+            <h3>发送消息</h3>
+            <p>欢迎通过邮箱与我们取得联系。</p>
+            <p><a href="mailto:sji733055@gmail.com">sji733055@gmail.com</a></p>
+            <a href="mailto:sji733055@gmail.com" class="btn btn-primary">发送邮件</a>
+          </div>
         </div>
-        <p class="footer-copyright">© 2026 河北工业大学RoboMaster山海机甲战队. All Rights Reserved.</p>
-    </footer>
+      </div>
+    </section>
 
-    <script src="js/script.js"></script>
-    <script src="js/nav.js"></script>
+    <section class="section section--alt">
+      <div class="section-container">
+        <div class="section-eyebrow">Message</div>
+        <h2 class="section-title">在线留言</h2>
+        <p class="section-desc">填写以下信息与我们取得联系。</p>
+        <form class="join-card card form-narrow" data-static-form>
+          <div class="form-group">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">邮箱</label>
+            <input type="email" id="email" name="email" autocomplete="email" spellcheck="false" required>
+          </div>
+          <div class="form-group">
+            <label for="message">消息</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">发送</button>
+          <p class="form-hint">表单为静态站点演示，正式留言请直接发邮件至 sji733055@gmail.com。</p>
+          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-container">
+        <div class="section-eyebrow">Partners</div>
+        <h2 class="section-title">合作伙伴</h2>
+        <div class="partners-grid">
+          <a href="https://www.china-amass.com/" target="_blank" rel="noopener" class="partner-card card">
+            <div class="partner-logo"><img loading="lazy" decoding="async" width="56" height="56" src="source/partners/amass.png" alt="Amass"></div>
+            <span class="partner-name">Amass</span>
+            <span class="partner-desc">连接器解决方案</span>
+          </a>
+          <a href="https://www.taobao.com/list/item/a2ZDVVVzbVlBL0lsMk9jTW01eUN4Zz09.htm" target="_blank" rel="noopener" class="partner-card card">
+            <div class="partner-logo"><img loading="lazy" decoding="async" width="56" height="56" src="source/partners/byehassle.png" alt="BYEHassle"></div>
+            <span class="partner-name">BYEHassle</span>
+            <span class="partner-desc">3D 打印耗材</span>
+          </a>
+          <a href="https://gy2025.com/" target="_blank" rel="noopener" class="partner-card card">
+            <div class="partner-logo"><img loading="lazy" decoding="async" width="47" height="56" src="source/partners/quanzhou.png" alt="铨洲智造"></div>
+            <span class="partner-name">铨洲智造</span>
+            <span class="partner-desc">精密加工</span>
+          </a>
+          <div class="partner-card card partner-vacancy">
+            <div class="partner-logo"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+            <span class="partner-name">虚位以待</span>
+            <span class="partner-desc">诚邀合作伙伴</span>
+          </div>
+        </div>
+        <p class="section-desc" style="margin: 18px 0 0;">（以上排名不分先后）</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <span class="footer-brand-name">山海机甲</span>
+          </div>
+          <p>河北工业大学 RoboMaster 战队<br>保持热爱，共赴山海</p>
+        </div>
+        <div class="footer-col">
+          <h4>导航</h4>
+          <a href="index.html#about">关于我们</a><a href="index.html#team-groups">团队架构</a><a href="index.html#achievements">赛事战绩</a><a href="index.html#robots">机器人</a>
+        </div>
+        <div class="footer-col">
+          <h4>内容</h4>
+          <a href="members.html">战队成员</a><a href="photos.html">战队图集</a><a href="open_source.html">开源项目</a><a href="index.html#contact">联系我们</a>
+        </div>
+        <div class="footer-col">
+          <h4>机构单位</h4>
+          <div class="footer-institutions">
+            <a href="https://www.hebut.edu.cn/" target="_blank" rel="noopener" class="footer-inst-logo">
+              <img loading="lazy" decoding="async" width="46" height="42" src="source/logo/hebut_logo.png" alt="河北工业大学">
+            </a>
+            <a href="https://mes.hebut.edu.cn/" target="_blank" rel="noopener" class="footer-inst-logo">
+              <img loading="lazy" decoding="async" width="281" height="42" src="source/logo/hebut_me.png" alt="机械工程学院">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 河北工业大学 RoboMaster 山海机甲战队</p>
+        <p>Made with <span class="heart">❤</span> by Shanhai Mecha</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 
 </html>

@@ -2,7 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0b0d">
+  <meta name="color-scheme" content="dark">
   <title>战队成员 | 山海机甲</title>
   <meta name="description" content="山海机甲战队成员介绍 — 现任队员与往届英灵殿。每一位为山海机甲奋斗过的队员，都值得被铭记。河北工业大学 RoboMaster 战队。">
   <meta name="keywords" content="山海机甲,战队成员,英灵殿,RoboMaster,河北工业大学,机器人战队">
@@ -22,15 +24,21 @@
   <link rel="icon" href="source/logo/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" media="print" onload="this.media='all'"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@500;600;700&display=swap">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@500;600;700&display=swap">
+  </noscript>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
   <header id="navbar">
-    <nav>
+    <nav aria-label="主导航">
       <a href="index.html" class="logo">
-        <img decoding="async" src="source/logo/title_logo.png" alt="山海机甲" class="logo-img">
+        <img decoding="async" width="178" height="38" src="source/logo/title_logo.png" alt="山海机甲" class="logo-img">
         <span class="logo-text">山海<span class="logo-dot"></span>机甲</span>
       </a>
       <ul id="nav-links">
@@ -41,16 +49,17 @@
         <li><a href="open_source.html">开源项目</a></li>
         <li><a href="index.html#contact">联系我们</a></li>
       </ul>
-      <button class="menu-toggle" id="menu-toggle" aria-label="菜单">
-        <span></span><span></span><span></span>
+      <button class="menu-toggle" id="menu-toggle" type="button"
+              aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
     </nav>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
     <section class="page-header-section">
       <div class="section-eyebrow">The Valhalla</div>
-      <h2 class="section-title">英灵殿</h2>
+      <h1 class="section-title">英灵殿</h1>
       <p class="section-desc" style="margin:0 auto;">每一位为山海机甲奋斗过的队员，都值得被铭记</p>
     </section>
 
@@ -75,9 +84,9 @@
   </main>
 
   <!-- 成员详情弹窗 (由 members.js 填充) -->
-  <div class="member-modal" id="member-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="member-modal-name">
+  <div class="member-modal" id="member-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="成员详情">
     <div class="member-modal-overlay" id="member-modal-overlay"></div>
-    <div class="member-modal-panel" role="document">
+    <div class="member-modal-panel" role="document" tabindex="-1">
       <button class="member-modal-close" id="member-modal-close" aria-label="关闭">&times;</button>
       <div class="member-modal-header">
         <div class="member-modal-avatar" id="member-modal-avatar"></div>
@@ -95,7 +104,9 @@
     <div class="footer-container">
       <div class="footer-main">
         <div class="footer-brand">
-          <span class="footer-brand-name">山海机甲</span>
+          <div class="footer-brand-logo">
+            <span class="footer-brand-name">山海机甲</span>
+          </div>
           <p>河北工业大学 RoboMaster 战队<br>保持热爱，共赴山海</p>
         </div>
         <div class="footer-col">

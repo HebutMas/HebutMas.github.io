@@ -119,8 +119,8 @@
     var html = '';
     html += '<section class="page-header-section">';
     html += '<div class="section-eyebrow">' + esc(group.en) + '</div>';
-    html += '<h2 class="section-title">' + esc(group.name) + '</h2>';
-    html += '<p class="section-desc" style="margin:0 auto;">' + esc(group.tagline) + '</p>';
+    html += '<h1 class="section-title">' + esc(group.name) + '</h1>';
+    html += '<p class="section-desc">' + esc(group.tagline) + '</p>';
     html += '</section>';
 
     html += '<section class="section" style="padding-top:40px;"><div class="section-container robot-detail-container">';
@@ -173,9 +173,9 @@
     mount.innerHTML =
       '<section class="page-header-section">' +
       '<div class="section-eyebrow">Not Found</div>' +
-      '<h2 class="section-title">未找到该组别</h2>' +
-      '<p class="section-desc" style="margin:0 auto;">链接可能有误，请返回团队架构重新选择。</p>' +
-      '<div style="margin-top:28px;">' +
+      '<h1 class="section-title">未找到该组别</h1>' +
+      '<p class="section-desc">链接可能有误，请返回团队架构重新选择。</p>' +
+      '<div class="page-header-actions">' +
       '<a href="index.html#team-groups" class="btn btn-primary">返回团队架构</a>' +
       '</div></section>';
   }
